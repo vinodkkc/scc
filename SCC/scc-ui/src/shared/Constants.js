@@ -1,0 +1,93 @@
+export const SECURITY_COMMAND_CENTER = "Security Command Center";
+
+export const ROUTE = {
+  ROOT: "/",
+  LOGIN: "/login",
+  ALERTS: "/alerts",
+  DASHBOARD: "/dashboard",
+  DETECTION: "/detection",
+  DIALOG: "/dialog",
+  DISCOVERY_AND_ASSETS_MANAGEMENT: "/discoveryAndAssetManagement",
+  EMULATION: "/emulation",
+  ENDPOINT: "/endpoint",
+  SOAR: "/soar",
+  NAVIGATOR: "/navigator",
+  NETWORK: "/network",
+  POLICY_MANAGEMENT: "/policyManagement",
+  RED_BLUE_TEAM: "/redBlueTeam",
+  RISK_MANAGEMENT: "/riskManagement",
+  SIMULATIONS: "/simulations",
+  THREAT_HUNTING: "/threatHunting",
+  TICKETING: "/ticketing",
+  THREAT_REPORT: "/threatReport",
+  UNDER_CONSTRUCTION: "/underConstruction",
+};
+
+export const SIDEMENUDATA = {
+  DASHBOARD: "dashboard",
+  ATTACK_EMULATION: "attackEmulation",
+  USERS: "users",
+  AUDIT_LOGS: "auditLogs",
+  CONFIGURATIONS: "configurations",
+  ACDS_NAVIGATOR: "acdsNavigator",
+  ALERTS: "alerts",
+};
+
+export const IFRAME = {
+  DASHBOARD: "Dashboard",
+  DETECTION: "Detection",
+  NETWORK: "Network",
+  THREAT_REPORT: "Threat Report",
+  ATTACK_EMULATION: "Attack emulation",
+  USERS: "Users",
+  AUDIT_LOGS: "Audit Logs",
+  CONFIGURATIONS: "Configurations",
+  ACDS_NAVIGATOR: "ACDS Navigator",
+  ALERTS: "Alerts",
+  RISK_REPORT: "Risk Report",
+  COMPLIANCE_REPORT: "Compliance Report",
+  VULNERABILITY_REPORT: "Vulnerability Report",
+  SOAR: "SOAR"
+};
+
+export const EMULATION = {
+  ATTACK_ACCEPT_MESSAGE: "By clicking 'Accept' I agree to launch the Attack",
+  ATTACK_NAME: "Attack Name:",
+  ATTACK_TYPE: "Choose type of Attack:",
+  ATOMIC_RED: "Atomic Red Attack",
+  MANUAL_ATTACK: "Manual Attack",
+  SELECT_TECHNIQUE: "Select Technique:",
+  ATTACK_DETAILS: "Attack Details:",
+  ATTACK_TECHNIQUE: "Attack Technique:",
+  CYBER_ATTACK: "Cyber Attack",
+  AFFECTED_SYSTEM: "Affected System:",
+  LINUX: "Linux",
+  WINDOW: "Window",
+  CLOUD: "Cloud",
+  DOCKER: "Docker",
+  LOCALHOST: "Localhost",
+  CONNECT: "Connect",
+  CHECK_PREREQUISTES: "Check prerequistes",
+  GET_PREREQUISTES: "Get prerequistes",
+  ATTACK_EXECUTION: "Attack Execution",
+  MACHINE_INFORMATION: "Target Machine to perform Attack:",
+  MACHINE_USERNAME: "Username of Target Machine:",
+  MACHINE_NAME: "Machine name of Target Machine:",
+  MACHINE_DESCRIPTION: "Target Machine Description:",
+  STEP_ONE: "StepOne",
+  STEP_TWO: "StepTwo",
+  STEP_THREE: "StepThree",
+  STEP_FOUR: "StepFour",
+  SUBMIT: "Submit",
+};
+
+export const POLICY_MANAGEMENT = {
+  COMPONENT: "component",
+  ANONYMIZE: "anonymize",
+  PURGE_DATA_OLDER_THAN_DAYS: "purgeDataOlderThanDays",
+  SAVE: "save",
+  CANCEL: "cancel",
+  TIP: "tip",
+  TRUE: true,
+  FALSE: false,
+};

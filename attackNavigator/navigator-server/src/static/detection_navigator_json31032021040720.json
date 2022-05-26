@@ -1,0 +1,2713 @@
+{
+    "name": "layer",
+    "versions": {
+        "attack": "8",
+        "navigator": "4.1",
+        "layer": "4.1"
+    },
+    "domain": "enterprise-attack",
+    "description": "",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1548.004",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Consider monitoring for /usr/libexec/security_authtrampoline executions which may indicate that AuthorizationExecuteWithPrivileges is being executed.\", \"2. Monitoring OS API callbacks for the execution can also be a way to detect this behavior but requires specialized security tooling.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1548.004",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Consider monitoring for /usr/libexec/security_authtrampoline executions which may indicate that AuthorizationExecuteWithPrivileges is being executed.\", \"2. Monitoring OS API callbacks for the execution can also be a way to detect this behavior but requires specialized security tooling.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1134.001",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['\"select * from file WHERE directory = \\'C:\\\\\\\\\\\\\\\\Windows\\\\\\\\\\\\\\\\Prefetch\\\\\\\\\\\\\\\\\\' and filename like \\'%runas%\\';\"']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1134.001",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['\"select * from file WHERE directory = \\'C:\\\\\\\\\\\\\\\\Windows\\\\\\\\\\\\\\\\Prefetch\\\\\\\\\\\\\\\\\\' and filename like \\'%runas%\\';\"']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1548.002",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "[\"select name, type, data from registry where key='HKEY_CURRENT_USER\\\\\\\\Software\\\\\\\\Classes\\\\\\\\mscfile\\\\\\\\shell\\\\\\\\open\\\\\\\\command';\", \"select name, type, data from registry where key='HKEY_CURRENT_USER\\\\\\\\Software\\\\\\\\Classes\\\\\\\\ms-settings\\\\\\\\shell\\\\\\\\open';\", \"select name, type, data from registry where key LIKE 'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Classes\\\\\\\\ms-settings\\\\\\\\shell\\\\\\\\open';\", \"select name, type, data from registry where key LIKE 'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\App Paths\\\\\\\\control.exe';\", \"select name, type, data from registry where key LIKE 'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Classes\\\\\\\\exefile\\\\\\\\shell\\\\\\\\runas\\\\\\\\command\\\\\\\\isolatedCommand';\", \"select name, type, data from registry where key LIKE 'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Classes\\\\\\\\mscfile\\\\\\\\shell\\\\\\\\open\\\\\\\\command';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1548.002",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "[\"select name, type, data from registry where key='HKEY_CURRENT_USER\\\\\\\\Software\\\\\\\\Classes\\\\\\\\mscfile\\\\\\\\shell\\\\\\\\open\\\\\\\\command';\", \"select name, type, data from registry where key='HKEY_CURRENT_USER\\\\\\\\Software\\\\\\\\Classes\\\\\\\\ms-settings\\\\\\\\shell\\\\\\\\open';\", \"select name, type, data from registry where key LIKE 'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Classes\\\\\\\\ms-settings\\\\\\\\shell\\\\\\\\open';\", \"select name, type, data from registry where key LIKE 'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\App Paths\\\\\\\\control.exe';\", \"select name, type, data from registry where key LIKE 'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Classes\\\\\\\\exefile\\\\\\\\shell\\\\\\\\runas\\\\\\\\command\\\\\\\\isolatedCommand';\", \"select name, type, data from registry where key LIKE 'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Classes\\\\\\\\mscfile\\\\\\\\shell\\\\\\\\open\\\\\\\\command';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1134.003",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['\"select * from file WHERE directory = \\'C:\\\\\\\\\\\\\\\\Windows\\\\\\\\\\\\\\\\Prefetch\\\\\\\\\\\\\\\\\\' and filename like \\'%runas%\\';\"']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1134.003",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['\"select * from file WHERE directory = \\'C:\\\\\\\\\\\\\\\\Windows\\\\\\\\\\\\\\\\Prefetch\\\\\\\\\\\\\\\\\\' and filename like \\'%runas%\\';\"']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1134.004",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Look for inconsistencies between the various fields that store PPID information, such as the EventHeader ProcessId from data collected via Event Tracing for Windows (ETW), Creator Process ID/Name from Windows event logs, and the ProcessID and ParentProcessID (which are also produced from ETW and other utilities such as Task Manager and Process Explorer).\", \"2. Monitor and analyze API calls to CreateProcess/CreateProcessA, specifically those from user/potentially malicious processes and with parameters explicitly assigning PPIDs (ex: the Process Creation Flags of 0x8XXX, indicating that the process is being created with extended startup information.\", \"Need to explore ETW for windows\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1134.004",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Look for inconsistencies between the various fields that store PPID information, such as the EventHeader ProcessId from data collected via Event Tracing for Windows (ETW), Creator Process ID/Name from Windows event logs, and the ProcessID and ParentProcessID (which are also produced from ETW and other utilities such as Task Manager and Process Explorer).\", \"2. Monitor and analyze API calls to CreateProcess/CreateProcessA, specifically those from user/potentially malicious processes and with parameters explicitly assigning PPIDs (ex: the Process Creation Flags of 0x8XXX, indicating that the process is being created with extended startup information.\", \"Need to explore ETW for windows\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1098",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['Collect Events that correlate with chnages to account objects and/or permissions on systems and the domain, such event Ids - 4738,4728,467. Monitor for unusual permission changes that may indicate excessively broad permissions being granted']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1098.001",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Azure Account Manipulation Detection :\\nhttps://docs.microsoft.com/en-us/azure/azure-resource-manager/management/view-activity-logs\\n2. AWS Account Manipulation Detection :\\nhttps://aws.amazon.com/premiumsupport/knowledge-center/potential-account-compromise/\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1098.003",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"Collect usage logs from cloud administrator accounts to identify unusual activity in the assignment of roles to those accounts. Monitor for accounts assigned to admin roles that go over a certain threshold of known admins.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1098.004",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "[\"['select * from file_events;']\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1071.001",
+            "tactic": "command-and-control",
+            "color": "#8ddd25",
+            "comment": "['Zeek Script - https://github.com/zeek/zeek/tree/masterscripts/policy/protocols', \"select p.name, p.path, lp.port, lp.address, lp.protocol  from listening_ports lp LEFT JOIN processes p ON lp.pid = p.pid WHERE lp.port != 0 AND p.name != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1010",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "['Monitor process and command line arguments for actions that could be taken to gather system and network information.\\n\\nProcesses indirectly interacting with Windows API to gather information']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1560.001",
+            "tactic": "collection",
+            "color": "#8ddd25",
+            "comment": "[\"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\", \"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%MAKECAB%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1197",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%bitsadmin%';\", \"select DISTINCT p.name, p.path, pos.remote_address, pos.remote_port from process_open_sockets pos LEFT JOIN processes p ON pos.pid = p.pid WHERE pos.remote_port != 0 AND p.name != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1197",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%bitsadmin%';\", \"select DISTINCT p.name, p.path, pos.remote_address, pos.remote_port from process_open_sockets pos LEFT JOIN processes p ON pos.pid = p.pid WHERE pos.remote_port != 0 AND p.name != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.002",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"win_violated_code_integrity_policy.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.002",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"win_violated_code_integrity_policy.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.004",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"select name, type, data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\SOFTWARE\\\\\\\\Microsoft\\\\\\\\Windows NT\\\\\\\\CurrentVersion\\\\\\\\Winlogon\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.004",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"select name, type, data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\SOFTWARE\\\\\\\\Microsoft\\\\\\\\Windows NT\\\\\\\\CurrentVersion\\\\\\\\Winlogon\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.005",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"win_violated_code_integrity_policy.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.005",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"win_violated_code_integrity_policy.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.006",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Loading, unloading, and manipulating modules on Linux systems can be detected by monitoring for the following commands:modprobe, insmod, lsmod, rmmod, or modinfo.  LKMs are typically loaded into /lib/modules and have had the extension .ko (\"kernel object\") since version 2.6 of the Linux kernel. \\n2. For macOS, monitor for execution of kextload commands and correlate with other unknown or suspicious activity.\\n3. Adversaries may run commands on the target system before loading a malicious module in order to ensure that it is properly compiled. [3] Adversaries may also execute commands to identify the exact version of the running Linux kernel and/or download multiple versions of the same .ko (kernel object) files to use the one appropriate for the running system.[11] Many LKMs require Linux headers (specific to the target kernel) in order to compile properly. These are typically obtained through the operating systems package manager and installed like a normal package. On Ubuntu and Debian based systems this can be accomplished by running: apt-get install linux-headers-$(uname -r) On RHEL and CentOS based systems this can be accomplished by running: yum install kernel-devel-$(uname -r)\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.006",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Loading, unloading, and manipulating modules on Linux systems can be detected by monitoring for the following commands:modprobe, insmod, lsmod, rmmod, or modinfo.  LKMs are typically loaded into /lib/modules and have had the extension .ko (\"kernel object\") since version 2.6 of the Linux kernel. \\n2. For macOS, monitor for execution of kextload commands and correlate with other unknown or suspicious activity.\\n3. Adversaries may run commands on the target system before loading a malicious module in order to ensure that it is properly compiled. [3] Adversaries may also execute commands to identify the exact version of the running Linux kernel and/or download multiple versions of the same .ko (kernel object) files to use the one appropriate for the running system.[11] Many LKMs require Linux headers (specific to the target kernel) in order to compile properly. These are typically obtained through the operating systems package manager and installed like a normal package. On Ubuntu and Debian based systems this can be accomplished by running: apt-get install linux-headers-$(uname -r) On RHEL and CentOS based systems this can be accomplished by running: yum install kernel-devel-$(uname -r)\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.007",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitoring the specific plist files associated with reopening applications can indicate when an application has registered itself to be reopened.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.007",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitoring the specific plist files associated with reopening applications can indicate when an application has registered itself to be reopened.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.009",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"select * FROM ntfs_journal_events;\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.009",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"select * FROM ntfs_journal_events;\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1037.001",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "[\"select * from registry where key='HKEY_CURRENT_USER\\\\\\\\Environment';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1037.001",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "[\"select * from registry where key='HKEY_CURRENT_USER\\\\\\\\Environment';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1037.002",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitor logon scripts for unusual access by abnormal users or at abnormal times. Look for files added or modified by unusual accounts outside of normal administration duties. Monitor running process for actions that could be indicative of abnormal programs or executables running upon logon.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1037.002",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitor logon scripts for unusual access by abnormal users or at abnormal times. Look for files added or modified by unusual accounts outside of normal administration duties. Monitor running process for actions that could be indicative of abnormal programs or executables running upon logon.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1037.004",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"The /etc/rc.common file can be monitored to detect changes from the company policy. Monitor process execution resulting from the rc.common script for unusual or unknown applications or behavior.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1037.004",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"The /etc/rc.common file can be monitored to detect changes from the company policy. Monitor process execution resulting from the rc.common script for unusual or unknown applications or behavior.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1037.005",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"The /Library/StartupItems folder can be monitored for changes. Similarly, the programs that are actually executed from this mechanism should be checked against a whitelist.\\n\\nMonitor processes that are executed during the bootup process to check for unusual or unknown applications and behavior.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1037.005",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"The /Library/StartupItems folder can be monitored for changes. Similarly, the programs that are actually executed from this mechanism should be checked against a whitelist.\\n\\nMonitor processes that are executed during the bootup process to check for unusual or unknown applications and behavior.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1217",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "['select usr.username, sht.command, sht.history_file from shell_history sht JOIN users usr ON sht.uid = usr.uid WHERE sht.uid IN (SELECT uid from users);', \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1110",
+            "tactic": "credential-access",
+            "color": "#8ddd25",
+            "comment": "['message:*authentication*failure']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1110.002",
+            "tactic": "credential-access",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%mimikatz%';\", \"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%procdump%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1059",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%CMD%';\", 'select usr.username, sht.command, sht.history_file from shell_history sht JOIN users usr ON sht.uid = usr.uid WHERE sht.uid IN (SELECT uid from users);', \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1059.002",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['[\"1. SELECT * FROM apps where oascript_enabled != \\'0\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1059.005",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['[\"select * from file_events;\", \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != \\'\\';\", \"select * from file WHERE directory = \\'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\\\' and filename like \\'%cscript%\\' OR like \\'%wscript%\\';\"]', '[\"If VB execution is not commonly used on a system, but enabled, execution running out of cycle from patching or other administrator functions is suspicious. Payloads and scripts should be captured from the file system when possible to determine their actions and intent.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1059.007",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['[\"select * from file WHERE directory = \\'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\\\' and filename like \\'%cscript%\\';\", \"select * from file WHERE directory = \\'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\\\' and filename like \\'%wscript%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1554",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"1.Collect and analyze signing certificate metadata and check signature validity on software that executes within the environment. Look for changes to client software that do not correlate with known software or patch cycles.\\n2. Consider monitoring for anomalous behavior from client applications, such as atypical module loads, file reads/writes, or network connections.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1136.001",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%net.exe%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1136.003",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"Collect usage logs from cloud user and administrator accounts to identify unusual activity in the creation of new accounts and assignment of roles to those accounts. Monitor for accounts assigned to admin roles that go over a certain threshold of known admins.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1543.001",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitor Launch Agent creation through additional plist files and utilities such as Objective-See\u2019s KnockKnock application. Launch Agents also require files on disk for persistence which can also be monitored via other file monitoring applications.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1543.001",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitor Launch Agent creation through additional plist files and utilities such as Objective-See\u2019s KnockKnock application. Launch Agents also require files on disk for persistence which can also be monitored via other file monitoring applications.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1543.003",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "[\"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\", \"select name,type,data from registry where key='HKEY_LOCAL_MACHINE\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunServices';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1543.003",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "[\"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\", \"select name,type,data from registry where key='HKEY_LOCAL_MACHINE\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunServices';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1555",
+            "tactic": "credential-access",
+            "color": "#8ddd25",
+            "comment": "[\"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.name LIKE 'lazagne';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1555.003",
+            "tactic": "credential-access",
+            "color": "#8ddd25",
+            "comment": "[\"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.name LIKE 'lazagne';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1486",
+            "tactic": "impact",
+            "color": "#8ddd25",
+            "comment": "[\"select path, size from file where path like 'C:\\\\Users\\\\%%' and mtime > (select local_time from time) - 100 and filename\\xa0!= '.';\", \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1565.003",
+            "tactic": "impact",
+            "color": "#8ddd25",
+            "comment": "['[\"Inspect important application binary file hashes, locations, and modifications for suspicious/unexpected values.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1074",
+            "tactic": "collection",
+            "color": "#8ddd25",
+            "comment": "[\"select f.path,f.directory,u.username,f.hard_links,f.symlink,datetime(f.btime, 'unixepoch', 'UTC') as btime, datetime(f.atime, 'unixepoch', 'UTC') as atime, datetime(f.ctime, 'unixepoch', 'UTC') as ctime, datetime(f.mtime, 'unixepoch', 'UTC') as mtime from file f LEFT JOIN users u on f.uid=u.uid where f.path like 'C:\\\\\\\\users\\\\\\\\%\\\\\\\\AppData\\\\\\\\Local\\\\\\\\%' AND f.type='directory';\", \"SELECT hash.md5, path, file.filename, datetime(file.btime, 'unixepoch', 'UTC') as btime, datetime(file.atime, 'unixepoch', 'UTC') as atime, datetime(file.ctime, 'unixepoch', 'UTC') as ctime, datetime(file.mtime, 'unixepoch', 'UTC') as mtime FROM hash JOIN file USING (path) where path like 'C:\\\\\\\\Windows\\\\\\\\temp\\\\\\\\%' and type='regular';\", \"select f.path,f.directory,u.username,f.hard_links,f.symlink,datetime(f.btime, 'unixepoch', 'UTC') as btime, datetime(f.atime, 'unixepoch', 'UTC') as atime, datetime(f.ctime, 'unixepoch', 'UTC') as ctime, datetime(f.mtime, 'unixepoch', 'UTC') as mtime from file f LEFT JOIN users u on f.uid=u.uid where f.path like 'C:\\\\\\\\Windows\\\\\\\\temp\\\\\\\\%' AND f.type='directory';\", \"select f.path,f.directory,u.username,f.hard_links,f.symlink,datetime(f.btime, 'unixepoch', 'UTC') as btime, datetime(f.atime, 'unixepoch', 'UTC') as atime, datetime(f.ctime, 'unixepoch', 'UTC') as ctime, datetime(f.mtime, 'unixepoch', 'UTC') as mtime from file f LEFT JOIN users u on f.uid=u.uid where f.path like 'C:\\\\\\\\users\\\\\\\\%\\\\\\\\AppData\\\\\\\\local\\\\\\\\temp\\\\\\\\%' AND f.type='directory';\", \"select f.path,f.directory,u.username,f.hard_links,f.symlink,datetime(f.btime, 'unixepoch', 'UTC') as btime, datetime(f.atime, 'unixepoch', 'UTC') as atime, datetime(f.ctime, 'unixepoch', 'UTC') as ctime, datetime(f.mtime, 'unixepoch', 'UTC') as mtime from file f LEFT JOIN users u on f.uid=u.uid where f.path like 'C:\\\\\\\\Windows\\\\\\\\%' AND f.type='directory';\", \"SELECT hash.md5, path, file.filename, datetime(file.btime, 'unixepoch', 'UTC') as btime, datetime(file.atime, 'unixepoch', 'UTC') as atime, datetime(file.ctime, 'unixepoch', 'UTC') as ctime, datetime(file.mtime, 'unixepoch', 'UTC') as mtime FROM hash JOIN file USING (path) where path like 'C:\\\\\\\\users\\\\\\\\%\\\\\\\\AppData\\\\\\\\Local\\\\\\\\temp\\\\\\\\%' and type='regular';\", \"SELECT hash.md5, path, file.filename, datetime(file.btime, 'unixepoch', 'UTC') as btime, datetime(file.atime, 'unixepoch', 'UTC') as atime, datetime(file.ctime, 'unixepoch', 'UTC') as ctime, datetime(file.mtime, 'unixepoch', 'UTC') as mtime FROM hash JOIN file USING (path) where path like 'C:\\\\\\\\users\\\\\\\\%\\\\\\\\AppData\\\\\\\\Roaming\\\\\\\\%' and type='regular';\", \"SELECT hash.md5, path, file.filename, datetime(file.btime, 'unixepoch', 'UTC') as btime, datetime(file.atime, 'unixepoch', 'UTC') as atime, datetime(file.ctime, 'unixepoch', 'UTC') as ctime, datetime(file.mtime, 'unixepoch', 'UTC') as mtime FROM hash JOIN file USING (path) where path like 'C:\\\\\\\\users\\\\\\\\%\\\\\\\\AppData\\\\\\\\Local\\\\\\\\%' and type='regular';\", \"SELECT hash.md5, path, file.filename, datetime(file.btime, 'unixepoch', 'UTC') as btime, datetime(file.atime, 'unixepoch', 'UTC') as atime, datetime(file.ctime, 'unixepoch', 'UTC') as ctime, datetime(file.mtime, 'unixepoch', 'UTC') as mtime FROM hash JOIN file USING (path) where path like 'C:\\\\\\\\Windows\\\\\\\\%' and type='regular';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1074.001",
+            "tactic": "collection",
+            "color": "#8ddd25",
+            "comment": "[\"select f.path,f.directory,u.username,f.hard_links,f.symlink,datetime(f.btime, 'unixepoch', 'UTC') as btime, datetime(f.atime, 'unixepoch', 'UTC') as atime, datetime(f.ctime, 'unixepoch', 'UTC') as ctime, datetime(f.mtime, 'unixepoch', 'UTC') as mtime from file f LEFT JOIN users u on f.uid=u.uid where f.path like 'C:\\\\\\\\users\\\\\\\\%\\\\\\\\AppData\\\\\\\\Roaming\\\\\\\\%' AND f.type='directory';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1006",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"sysmon_raw_disk_access_using_illegitimate_tools.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.001",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"win_change_default_file_association.yml\"]', '[\"select * from registry where path like \\'HKEY_CURRENT_USER\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\FileExts\\\\%\\\\OpenWithProgids\\\\%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.001",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"win_change_default_file_association.yml\"]', '[\"select * from registry where path like \\'HKEY_CURRENT_USER\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\FileExts\\\\%\\\\OpenWithProgids\\\\%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.003",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"sysmon_wmi_event_subscription.yml\",\"win_wmi_backdoor_exchange_transport_agent.yml\",\"win_wmi_persistence_script_event_consumer.yml\",\"sysmon_wmi_persistence_script_event_consumer_write.yml\",\"sysmon_wmi_persistence_commandline_event_consumer.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.003",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"sysmon_wmi_event_subscription.yml\",\"win_wmi_backdoor_exchange_transport_agent.yml\",\"win_wmi_persistence_script_event_consumer.yml\",\"sysmon_wmi_persistence_script_event_consumer_write.yml\",\"sysmon_wmi_persistence_commandline_event_consumer.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.004",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"lnx_auditd_alter_bash_profile.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.004",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"lnx_auditd_alter_bash_profile.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.007",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"win_susp_netsh_dll_persistence.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.007",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"win_susp_netsh_dll_persistence.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.008",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "[\"select name,type,data from registry where key like 'HKEY_LOCAL_MACHINE\\\\\\\\SOFTWARE\\\\\\\\Microsoft\\\\\\\\Windows NT\\\\\\\\CurrentVersion\\\\\\\\Image File Execution Options\\\\\\\\%\\\\\\\\';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.008",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "[\"select name,type,data from registry where key like 'HKEY_LOCAL_MACHINE\\\\\\\\SOFTWARE\\\\\\\\Microsoft\\\\\\\\Windows NT\\\\\\\\CurrentVersion\\\\\\\\Image File Execution Options\\\\\\\\%\\\\\\\\';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.010",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"sysmon_new_dll_added_to_appinit_dlls_registry_key.yml\"]', '[\"select name,type,data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\SOFTWARE\\\\\\\\Microsoft\\\\\\\\Windows NT\\\\\\\\CurrentVersion\\\\\\\\Windows\\' and name=\\'AppInit_DLLs\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.010",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"sysmon_new_dll_added_to_appinit_dlls_registry_key.yml\"]', '[\"select name,type,data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\SOFTWARE\\\\\\\\Microsoft\\\\\\\\Windows NT\\\\\\\\CurrentVersion\\\\\\\\Windows\\' and name=\\'AppInit_DLLs\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.013",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"powershell_suspicious_profile_create.yml\\n\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.013",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"powershell_suspicious_profile_create.yml\\n\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.014",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitor emond rules creation by checking for files created or modified in /etc/emond.d/rules/ and /private/var/db/emondClients.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.014",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitor emond rules creation by checking for files created or modified in /etc/emond.d/rules/ and /private/var/db/emondClients.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.015",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"sysmon_comhijack_sdclt.yml\\n\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.015",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"sysmon_comhijack_sdclt.yml\\n\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1480",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"Detecting the use of environmental keying may be difficult depending on the implementation. Monitoring for suspicious processes being spawned that gather a variety of system information or perform other forms of Discovery, especially in a short period of time, may aid in detection.\", \"select * from processes;\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1048.003",
+            "tactic": "exfiltration",
+            "color": "#8ddd25",
+            "comment": "[\"select p.name, p.path, lp.port, lp.address, lp.protocol  from listening_ports lp LEFT JOIN processes p ON lp.pid = p.pid WHERE lp.port != 0 AND p.name != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1041",
+            "tactic": "exfiltration",
+            "color": "#8ddd25",
+            "comment": "[\"select p.name, p.path, lp.port, lp.address, lp.protocol  from listening_ports lp LEFT JOIN processes p ON lp.pid = p.pid WHERE lp.port != 0 AND p.name != '';\", \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.name LIKE 'lazagne';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1052",
+            "tactic": "exfiltration",
+            "color": "#8ddd25",
+            "comment": "['SELECT * FROM usb_devices;', 'SELECT device, device_alias, flags, path,type from mounts;']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1133",
+            "tactic": "initial-access",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Collect authentication logs for unsusal access patterns, windows of activity and access outside of business hours.\"]', 'select u.username, ce.name,ce.identifier,ce.version,ce.description,ce.locale,ce.update_url,ce.author,ce.persistent,ce.path from chrome_extensions ce LEFT JOIN users u ON ce.uid = u.uid;', '[\"win_susp_failed_logon_source.yml\", \"lnx_susp_failed_logons_single_source.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1133",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Collect authentication logs for unsusal access patterns, windows of activity and access outside of business hours.\"]', 'select u.username, ce.name,ce.identifier,ce.version,ce.description,ce.locale,ce.update_url,ce.author,ce.persistent,ce.path from chrome_extensions ce LEFT JOIN users u ON ce.uid = u.uid;', '[\"win_susp_failed_logon_source.yml\", \"lnx_susp_failed_logons_single_source.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1222.002",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"lnx_chattr_immutable_removal.yml\", \"lnx_file_or_folder_permissions.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1484",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"select * from windows_events where eid in (5136,5137,5138,5139,5141);\", \"select * from windows_events where eid in (4672,5704);\"]', 'select * from powershell_events;']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1484",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"select * from windows_events where eid in (5136,5137,5138,5139,5141);\", \"select * from windows_events where eid in (4672,5704);\"]', 'select * from powershell_events;']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1564.001",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['..']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.002",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['select DISTINCT(pm.path), p.pid, p.name from processes p JOIN process_memory_map pm ON p.pid=pm.pid;']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.002",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['select DISTINCT(pm.path), p.pid, p.name from processes p JOIN process_memory_map pm ON p.pid=pm.pid;']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.002",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['select DISTINCT(pm.path), p.pid, p.name from processes p JOIN process_memory_map pm ON p.pid=pm.pid;']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.004",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"Objective-See\\'s Dylib Hijacking Scanner can be used to detect potential cases of dylib hijacking. Monitor file systems for moving, renaming, replacing, or modifying dylibs. Changes in the set of dylibs that are loaded by a process (compared to past behavior) that do not correlate with known software, patches, etc., are suspicious. Check the system for multiple dylibs with the same name and monitor which versions have historically been loaded into a process.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.004",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"Objective-See\\'s Dylib Hijacking Scanner can be used to detect potential cases of dylib hijacking. Monitor file systems for moving, renaming, replacing, or modifying dylibs. Changes in the set of dylibs that are loaded by a process (compared to past behavior) that do not correlate with known software, patches, etc., are suspicious. Check the system for multiple dylibs with the same name and monitor which versions have historically been loaded into a process.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.004",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"Objective-See\\'s Dylib Hijacking Scanner can be used to detect potential cases of dylib hijacking. Monitor file systems for moving, renaming, replacing, or modifying dylibs. Changes in the set of dylibs that are loaded by a process (compared to past behavior) that do not correlate with known software, patches, etc., are suspicious. Check the system for multiple dylibs with the same name and monitor which versions have historically been loaded into a process.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.006",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"lnx_auditd_ld_so_preload_mod.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.006",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"lnx_auditd_ld_so_preload_mod.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.006",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"lnx_auditd_ld_so_preload_mod.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.007",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Monitor file creation for files named after partial directories and in locations that may be searched for common processes through the environment variable, or otherwise should not be user writable. Monitor the executing process for process executable paths that are named for partial directories. Monitor file creation for programs that are named after Windows system programs or programs commonly executed without a path (such as \"findstr,\" \"net,\" and \"python\"). If this activity occurs outside of known administration activity, upgrades, installations, or patches, then it may be suspicious.\\n2. Data and events should not be viewed in isolation, but as part of a chain of behavior that could lead to other activities, such as network connections made for Command and Control, learning details about the environment through Discovery, and Lateral Movement.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.007",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Monitor file creation for files named after partial directories and in locations that may be searched for common processes through the environment variable, or otherwise should not be user writable. Monitor the executing process for process executable paths that are named for partial directories. Monitor file creation for programs that are named after Windows system programs or programs commonly executed without a path (such as \"findstr,\" \"net,\" and \"python\"). If this activity occurs outside of known administration activity, upgrades, installations, or patches, then it may be suspicious.\\n2. Data and events should not be viewed in isolation, but as part of a chain of behavior that could lead to other activities, such as network connections made for Command and Control, learning details about the environment through Discovery, and Lateral Movement.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.007",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Monitor file creation for files named after partial directories and in locations that may be searched for common processes through the environment variable, or otherwise should not be user writable. Monitor the executing process for process executable paths that are named for partial directories. Monitor file creation for programs that are named after Windows system programs or programs commonly executed without a path (such as \"findstr,\" \"net,\" and \"python\"). If this activity occurs outside of known administration activity, upgrades, installations, or patches, then it may be suspicious.\\n2. Data and events should not be viewed in isolation, but as part of a chain of behavior that could lead to other activities, such as network connections made for Command and Control, learning details about the environment through Discovery, and Lateral Movement.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.009",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Monitor file creation for files named after partial directories and in locations that may be searched for common processes through the environment variable, or otherwise should not be user writable. Monitor the executing process for process executable paths that are named for partial directories. Monitor file creation for programs that are named after Windows system programs or programs commonly executed without a path (such as \"findstr,\" \"net,\" and \"python\"). If this activity occurs outside of known administration activity, upgrades, installations, or patches, then it may be suspicious.\\n2. Data and events should not be viewed in isolation, but as part of a chain of behavior that could lead to other activities, such as network connections made for Command and Control, learning details about the environment through Discovery, and Lateral Movement.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.009",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Monitor file creation for files named after partial directories and in locations that may be searched for common processes through the environment variable, or otherwise should not be user writable. Monitor the executing process for process executable paths that are named for partial directories. Monitor file creation for programs that are named after Windows system programs or programs commonly executed without a path (such as \"findstr,\" \"net,\" and \"python\"). If this activity occurs outside of known administration activity, upgrades, installations, or patches, then it may be suspicious.\\n2. Data and events should not be viewed in isolation, but as part of a chain of behavior that could lead to other activities, such as network connections made for Command and Control, learning details about the environment through Discovery, and Lateral Movement.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.009",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Monitor file creation for files named after partial directories and in locations that may be searched for common processes through the environment variable, or otherwise should not be user writable. Monitor the executing process for process executable paths that are named for partial directories. Monitor file creation for programs that are named after Windows system programs or programs commonly executed without a path (such as \"findstr,\" \"net,\" and \"python\"). If this activity occurs outside of known administration activity, upgrades, installations, or patches, then it may be suspicious.\\n2. Data and events should not be viewed in isolation, but as part of a chain of behavior that could lead to other activities, such as network connections made for Command and Control, learning details about the environment through Discovery, and Lateral Movement.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.010",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Look for changes to binaries and service executables that may normally occur during software updates. If an executable is written, renamed, and/or moved to match an existing service executable, it could be detected and correlated with other suspicious behavior. Hashing of binaries and service executables could be used to detect replacement against historical data.\\n2. Look for abnormal process call trees from typical processes and services and for execution of other commands that could relate to Discovery or other adversary techniques.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.010",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Look for changes to binaries and service executables that may normally occur during software updates. If an executable is written, renamed, and/or moved to match an existing service executable, it could be detected and correlated with other suspicious behavior. Hashing of binaries and service executables could be used to detect replacement against historical data.\\n2. Look for abnormal process call trees from typical processes and services and for execution of other commands that could relate to Discovery or other adversary techniques.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.010",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Look for changes to binaries and service executables that may normally occur during software updates. If an executable is written, renamed, and/or moved to match an existing service executable, it could be detected and correlated with other suspicious behavior. Hashing of binaries and service executables could be used to detect replacement against historical data.\\n2. Look for abnormal process call trees from typical processes and services and for execution of other commands that could relate to Discovery or other adversary techniques.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1562.001",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%netsh.exe%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1525",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitor interactions with images and containers by users to identify ones that are added or modified anomalously.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1070.001",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"select * from windows_events;\", \"select * from windows_eventlog;\"]', 'select * from windows_events where eventid=1102;', 'select * from powershell_events;', \"select * from file WHERE directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%wevtutil.exe%';\", \"select * from file WHERE directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%fsutil.exe%';\", '[\"win_susp_eventlog_clear.yml\",\"win_susp_fsutil_usage.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1056.001",
+            "tactic": "collection",
+            "color": "#8ddd25",
+            "comment": "['select * from file_events;']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1056.001",
+            "tactic": "credential-access",
+            "color": "#8ddd25",
+            "comment": "['select * from file_events;']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1559.001",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Monitor for spawning of processes associated with COM objects, especially those invoked by a user different than the one currently logged on.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1559.002",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['[\"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name=\\'explorer.exe\\') AND LOWER(name)=\\'cmd.exe\\') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name=\\'explorer.exe\\') AND LOWER(name)=\\'cmd.exe\\');\"]', '[\"OLE and Office Open XML files can be scanned for \u2018DDEAUTO\\', \u2018DDE\u2019, and other strings indicative of DDE execution.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1036.004",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "[\"select name,type,data from registry where key='HKEY_LOCAL_MACHINE\\\\SYSTEM\\\\CurrentControlSet\\\\Control\\\\Lsa';\", '[\"win_apt_wocao.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1112",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['all queries']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1106",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['[\"1. API monitoring will provide additional context to an event that may assist in determining if it is due to malicious behavior. Correlation of activity by process lineage by process ID may be sufficient.\", \"2. Utilization of the Windows API may involve processes loading/accessing system DLLs associated with providing called functions (ex: kernel32.dll, advapi32.dll, user32.dll, and gdi32.dll). Monitoring for DLL loads, especially to abnormal/unusual or potentially malicious processes, may indicate abuse of the Windows API.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1135",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%net.exe%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1003",
+            "tactic": "credential-access",
+            "color": "#8ddd25",
+            "comment": "['select usr.username, sht.command, sht.history_file from shell_history sht JOIN users usr ON sht.uid = usr.uid WHERE sht.uid IN (SELECT uid from users);', \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1003.004",
+            "tactic": "credential-access",
+            "color": "#8ddd25",
+            "comment": "[\"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.name LIKE 'lazagne';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1137.003",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[1. \"https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/detect-and-remediate-outlook-rules-forms-attack?view=o365-worldwide\\n2. https://github.com/sensepost/notruler\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1201",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "['select usr.username, sht.command, sht.history_file from shell_history sht JOIN users usr ON sht.uid = usr.uid WHERE sht.uid IN (SELECT uid from users);', \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\", \"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%net.exe%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1566.003",
+            "tactic": "initial-access",
+            "color": "#8ddd25",
+            "comment": "['[\"1. SSL/TLS inspection is generally required to detect the initial communication/delivery.\", \"2. Anti-virus can potentially detect malicious documents and files that are downloaded on the user\\'s computer.\", \"3. Endpoint sensing or network sensing can potentially detect malicious events once the file is opened.\"]', '[\"select DISTINCT p.name, p.path, pos.remote_address, pos.remote_port from process_open_sockets pos LEFT JOIN processes p ON pos.pid = p.pid WHERE pos.remote_port != 0 AND p.name != \\'\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1057",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%tasklist%';\", \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1055",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['select usr.username, sht.command, sht.history_file from shell_history sht JOIN users usr ON sht.uid = usr.uid WHERE sht.uid IN (SELECT uid from users);']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1055",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['select usr.username, sht.command, sht.history_file from shell_history sht JOIN users usr ON sht.uid = usr.uid WHERE sht.uid IN (SELECT uid from users);']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1219",
+            "tactic": "command-and-control",
+            "color": "#8ddd25",
+            "comment": "[\"select p.name, p.path, lp.port, lp.address, lp.protocol  from listening_ports lp LEFT JOIN processes p ON lp.pid = p.pid WHERE lp.port != 0 AND p.name != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1018",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%net.exe%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.001",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitor scheduled task creation using command-line invocation. Legitimate scheduled tasks may be created during installation of new software or through system administration functions. Look for changes to tasks that do not correlate with known software, patch cycles, etc.\", \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline like \\'%at%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.001",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitor scheduled task creation using command-line invocation. Legitimate scheduled tasks may be created during installation of new software or through system administration functions. Look for changes to tasks that do not correlate with known software, patch cycles, etc.\", \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline like \\'%at%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.001",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitor scheduled task creation using command-line invocation. Legitimate scheduled tasks may be created during installation of new software or through system administration functions. Look for changes to tasks that do not correlate with known software, patch cycles, etc.\", \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline like \\'%at%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.003",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['[\"SELECT * from crontab;\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.003",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"SELECT * from crontab;\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.003",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"SELECT * from crontab;\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.005",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['select * from windows_events where eventid=4698;', 'select * from windows_events where eventid=4701;', 'select * from windows_events where eventid=4700;', \"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%schtasks%';\", '[\"select * from file WHERE directory = \\'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\\\' and filename like \\'%schtasks%\\';\", \"select * from file WHERE directory = \\'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\\\' and filename like \\'%taskeng%\\';\", \"select * from processes p where p.parent=(select pid from processes where name=\\'svchost.exe\\');\", \"select * from processes p where p.parent=(select pid from processes where name=\\'taskeng.exe\\');\"]', '[\"Monitor Windows Task Scheduler stores in %systemroot%\\\\System32\\\\Tasks for change entries related to scheduled tasks that do not correlate with known software, patch cycles, etc.\", \"Configure event logging for scheduled task creation and changes by enabling the \"Microsoft-Windows-TaskScheduler/Operational\" setting within the event logging service. Monitor Event Ids 106, 140, 141, 4702, 4699, 4698, 4700, 4701.\", \"Tasks may also be created through Windows system management tools such as Windows Management Instrumentation and PowerShell, so additional logging may need to be configured to gather the appropriate data.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.005",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['select * from windows_events where eventid=4698;', 'select * from windows_events where eventid=4701;', 'select * from windows_events where eventid=4700;', \"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%schtasks%';\", '[\"select * from file WHERE directory = \\'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\\\' and filename like \\'%schtasks%\\';\", \"select * from file WHERE directory = \\'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\\\' and filename like \\'%taskeng%\\';\", \"select * from processes p where p.parent=(select pid from processes where name=\\'svchost.exe\\');\", \"select * from processes p where p.parent=(select pid from processes where name=\\'taskeng.exe\\');\"]', '[\"Monitor Windows Task Scheduler stores in %systemroot%\\\\System32\\\\Tasks for change entries related to scheduled tasks that do not correlate with known software, patch cycles, etc.\", \"Configure event logging for scheduled task creation and changes by enabling the \"Microsoft-Windows-TaskScheduler/Operational\" setting within the event logging service. Monitor Event Ids 106, 140, 141, 4702, 4699, 4698, 4700, 4701.\", \"Tasks may also be created through Windows system management tools such as Windows Management Instrumentation and PowerShell, so additional logging may need to be configured to gather the appropriate data.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.005",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['select * from windows_events where eventid=4698;', 'select * from windows_events where eventid=4701;', 'select * from windows_events where eventid=4700;', \"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%schtasks%';\", '[\"select * from file WHERE directory = \\'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\\\' and filename like \\'%schtasks%\\';\", \"select * from file WHERE directory = \\'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\\\' and filename like \\'%taskeng%\\';\", \"select * from processes p where p.parent=(select pid from processes where name=\\'svchost.exe\\');\", \"select * from processes p where p.parent=(select pid from processes where name=\\'taskeng.exe\\');\"]', '[\"Monitor Windows Task Scheduler stores in %systemroot%\\\\System32\\\\Tasks for change entries related to scheduled tasks that do not correlate with known software, patch cycles, etc.\", \"Configure event logging for scheduled task creation and changes by enabling the \"Microsoft-Windows-TaskScheduler/Operational\" setting within the event logging service. Monitor Event Ids 106, 140, 141, 4702, 4699, 4698, 4700, 4701.\", \"Tasks may also be created through Windows system management tools such as Windows Management Instrumentation and PowerShell, so additional logging may need to be configured to gather the appropriate data.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1029",
+            "tactic": "exfiltration",
+            "color": "#8ddd25",
+            "comment": "[\"select p.name, p.path, lp.port, lp.address, lp.protocol  from listening_ports lp LEFT JOIN processes p ON lp.pid = p.pid WHERE lp.port != 0 AND p.name != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1113",
+            "tactic": "collection",
+            "color": "#8ddd25",
+            "comment": "['[\"SELECT * FROM users CROSS JOIN chrome_extensions USING (uid) WHERE identifier=\\'fdcgdnkidjaadafnichfpabhfomcebme\\';\",\"SELECT * FROM users CROSS JOIN chrome_extensions USING (uid) WHERE identifier=\\'fcfhplploccackoneaefokcmbjfbkenj\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1489",
+            "tactic": "impact",
+            "color": "#8ddd25",
+            "comment": "['..']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1129",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['[\"select * from file_events;\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1218.001",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "[\"select * from processes where name='hh.exe';\", '[\"win_possible_applocker_bypass.yml\"]', \"SELECT * FROM processes WHERE LOWER(name)='rundll32.exe';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1218.003",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%CMSTP%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1218.005",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%POWERSHELL.exe%';\", \"select * from file WHERE directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%mshta%';\", '[\"win_susp_mshta_execution.yml\"]', '[\"win_apt_babyshark.yml\"]', '[\"win_lethalhta.yml\"]', '[\"win_mshta_javascript.yml\"]', '[\"win_mshta_spawn_shell.yml\"]', '[\"win_possible_applocker_bypass.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1218.009",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"win_possible_applocker_bypass.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1218.011",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "[\"SELECT * FROM processes WHERE LOWER(name)='rundll32.exe';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1216",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%cscript%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1216.001",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%cscript%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1195.001",
+            "tactic": "initial-access",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Use verification of distributed binaries through hash checking or other integrity checking mechanisms.\", \"2. Scan downloads for malicious signatures and attempt to test software and updates prior to deployment\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1195.003",
+            "tactic": "initial-access",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Perform physical inspection of hardware to look for potential tampering.\", \"2. Perform integrity checking on pre-OS boot mechanisms that can be manipulated for malicious purposes.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1016",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "['select usr.username, sht.command, sht.history_file from shell_history sht JOIN users usr ON sht.uid = usr.uid WHERE sht.uid IN (SELECT uid from users);', \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1049",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%netstat%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1007",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%tasklist%';\", \"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%sc%';\", \"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%net.exe%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1569.002",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%sc%';\", \"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%net%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1529",
+            "tactic": "impact",
+            "color": "#8ddd25",
+            "comment": "['']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1205",
+            "tactic": "command-and-control",
+            "color": "#8ddd25",
+            "comment": "[\"select p.name, p.path, lp.port, lp.address, lp.protocol  from listening_ports lp LEFT JOIN processes p ON lp.pid = p.pid WHERE lp.port != 0 AND p.name != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1205",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "[\"select p.name, p.path, lp.port, lp.address, lp.protocol  from listening_ports lp LEFT JOIN processes p ON lp.pid = p.pid WHERE lp.port != 0 AND p.name != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1205",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "[\"select p.name, p.path, lp.port, lp.address, lp.protocol  from listening_ports lp LEFT JOIN processes p ON lp.pid = p.pid WHERE lp.port != 0 AND p.name != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1199",
+            "tactic": "initial-access",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Establish monitoring for activity conducted by second and third party providers and other trusted entities\", \"2. monitoring for behavior related to Credential Access, Lateral Movement, and Collection will be important to detect the intrusion.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1548.001",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"select * from file where path like \\'/tmp/%\\' and mode like \\'4%\\' or mode like \\'6%\\';\", \"select * from file_events where mode like \\'4%\\' or mode like \\'6%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1548.001",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"select * from file where path like \\'/tmp/%\\' and mode like \\'4%\\' or mode like \\'6%\\';\", \"select * from file_events where mode like \\'4%\\' or mode like \\'6%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1548.003",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"1. On Linux, auditd can alert every time a user\\'s actual ID and effective ID are different (this is what happens when you sudo).\", \"2. This technique is abusing normal functionality in macOS and Linux systems, but sudo has the ability to log all input and output based on the LOG_INPUT and LOG_OUTPUT directives in the /etc/sudoers file.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1548.003",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"1. On Linux, auditd can alert every time a user\\'s actual ID and effective ID are different (this is what happens when you sudo).\", \"2. This technique is abusing normal functionality in macOS and Linux systems, but sudo has the ability to log all input and output based on the LOG_INPUT and LOG_OUTPUT directives in the /etc/sudoers file.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1134",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%runas%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1134",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%runas%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1134.002",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['\"select * from file WHERE directory = \\'C:\\\\\\\\\\\\\\\\Windows\\\\\\\\\\\\\\\\Prefetch\\\\\\\\\\\\\\\\\\' and filename like \\'%runas%\\';\"']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1134.002",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['\"select * from file WHERE directory = \\'C:\\\\\\\\\\\\\\\\Windows\\\\\\\\\\\\\\\\Prefetch\\\\\\\\\\\\\\\\\\' and filename like \\'%runas%\\';\"']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1134.005",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Examine data in user\u2019s SID-History attributes using the PowerShell Get-ADUser cmdlet , especially users who have SID-History values from the same domain.\", \"2. Monitor account management events on Domain Controllers for successful and failed changes to SID-History.\", \"3. Monitor for Windows API calls to the DsAddSidHistory function.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1134.005",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Examine data in user\u2019s SID-History attributes using the PowerShell Get-ADUser cmdlet , especially users who have SID-History values from the same domain.\", \"2. Monitor account management events on Domain Controllers for successful and failed changes to SID-History.\", \"3. Monitor for Windows API calls to the DsAddSidHistory function.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1087",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "['select usr.username, sht.command, sht.history_file from shell_history sht JOIN users usr ON sht.uid = usr.uid WHERE sht.uid IN (SELECT uid from users);', \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\", \"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%net.exe%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1098.002",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Monitor for unusual Exchange and Office 365 email account permissions changes that may indicate excessively broad permissions being granted to compromised accounts.\\n2. A larger than normal volume of emails sent from an account and similar phishing emails sent from \\u202freal accounts within a network may be a sign that an account was compromised and attempts to leverage access with modified email permissions is occurring.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1071",
+            "tactic": "command-and-control",
+            "color": "#8ddd25",
+            "comment": "[\"select p.name, p.path, lp.port, lp.address, lp.protocol  from listening_ports lp LEFT JOIN processes p ON lp.pid = p.pid WHERE lp.port != 0 AND p.name != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1560",
+            "tactic": "collection",
+            "color": "#8ddd25",
+            "comment": "['Process Monitoring and monitoring for command-line arguments for known archival utilities.\\n\\nAny process using crypdll to encrypt,decrypt or verfification.\\n\\nZeek - https://github.com/hosom/file-extraction/blob/master/scripts/file-extension.zeek', '\"Filebeat query\\nmessage : (*exe= *tar AND *comm= tar) OR message : *gzip* OR message  : *zip*\\n\\nelastalert query\\nmatch_body.message : (*exe= *tar AND *comm= tar) OR match_body.message : *gzip* OR match_body.message : *zip*\\nOR\\nmatch_body.message : *zip* or (*exe= *tar AND *comm= tar)\"']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1020",
+            "tactic": "exfiltration",
+            "color": "#8ddd25",
+            "comment": "[\"select p.name, p.path, lp.port, lp.address, lp.protocol  from listening_ports lp LEFT JOIN processes p ON lp.pid = p.pid WHERE lp.port != 0 AND p.name != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.001",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "[\"select name,type,data from registry where key='HKEY_LOCAL_MACHINE\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunOnceEx\\\\\\\\0001';\", \"select name,type,data from registry where key='HKEY_CURRENT_USER\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunServices';\", \"select name,type,data from registry where key LIKE 'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\Run' and name='SystemTextEncoding';\", \"select name,type,data from registry where key='HKEY_CURRENT_USER\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunOnce';\", \"select name,type,data from registry where key='HKEY_CURRENT_USER\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\Run';\", \"select * from file WHERE directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%reg.exe%';\", \"select name,type,data from registry where key='HKEY_LOCAL_MACHINE\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunOnce';\", \"select name,type,data from registry where key='HKEY_LOCAL_MACHINE\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunServices';\", \"select name,type,data from registry where key LIKE 'HKEY_USERS\\\\%\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run' and name='SystemTextEncoding';\", \"select name,type,data from registry where key LIKE 'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunServices';\", \"select name,type,data from registry where key='HKEY_LOCAL_MACHINE\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunServicesOnce';\", \"select name,type,data from registry where key='HKEY_LOCAL_MACHINE\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunOnceEx\\\\\\\\0001\\\\\\\\Depend';\", \"select name,type,data from registry where key LIKE 'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunServicesOnce';\", \"select name,type,data from registry where key LIKE 'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\Run';\", \"select name,type,data from registry where key='HKEY_LOCAL_MACHINE\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\Run';\", \"select name,type,data from registry where key='HKEY_LOCAL_MACHINE\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\RunOnceEx\\\\0001';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.001",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "[\"select name,type,data from registry where key='HKEY_LOCAL_MACHINE\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunOnceEx\\\\\\\\0001';\", \"select name,type,data from registry where key='HKEY_CURRENT_USER\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunServices';\", \"select name,type,data from registry where key LIKE 'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\Run' and name='SystemTextEncoding';\", \"select name,type,data from registry where key='HKEY_CURRENT_USER\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunOnce';\", \"select name,type,data from registry where key='HKEY_CURRENT_USER\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\Run';\", \"select * from file WHERE directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%reg.exe%';\", \"select name,type,data from registry where key='HKEY_LOCAL_MACHINE\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunOnce';\", \"select name,type,data from registry where key='HKEY_LOCAL_MACHINE\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunServices';\", \"select name,type,data from registry where key LIKE 'HKEY_USERS\\\\%\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run' and name='SystemTextEncoding';\", \"select name,type,data from registry where key LIKE 'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunServices';\", \"select name,type,data from registry where key='HKEY_LOCAL_MACHINE\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunServicesOnce';\", \"select name,type,data from registry where key='HKEY_LOCAL_MACHINE\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunOnceEx\\\\\\\\0001\\\\\\\\Depend';\", \"select name,type,data from registry where key LIKE 'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\RunServicesOnce';\", \"select name,type,data from registry where key LIKE 'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\Run';\", \"select name,type,data from registry where key='HKEY_LOCAL_MACHINE\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\Run';\", \"select name,type,data from registry where key='HKEY_LOCAL_MACHINE\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\RunOnceEx\\\\0001';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.003",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"select name, type, data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\SYSTEM\\\\\\\\CurrentControlSet\\\\\\\\Services\\\\\\\\W32Time\\\\\\\\TimeProviders\\\\\\\\\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.003",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"select name, type, data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\SYSTEM\\\\\\\\CurrentControlSet\\\\\\\\Services\\\\\\\\W32Time\\\\\\\\TimeProviders\\\\\\\\\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.008",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"win_violated_code_integrity_policy.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.008",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"win_violated_code_integrity_policy.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.010",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"select name, type, data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\System\\\\\\\\CurrentControlSet\\\\\\\\Control\\\\\\\\Print\\\\\\\\Monitors\\\\\\\\\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.010",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"select name, type, data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\System\\\\\\\\CurrentControlSet\\\\\\\\Control\\\\\\\\Print\\\\\\\\Monitors\\\\\\\\\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1550.003",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%mimikatz%';\", '[\"select * from powershell_events where script_text like \\'%Invoke-Mimikatz%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1550.003",
+            "tactic": "lateral-movement",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%mimikatz%';\", '[\"select * from powershell_events where script_text like \\'%Invoke-Mimikatz%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1204",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "[\"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='notepad++.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='notepad++.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='firefox.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='firefox.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent != (SELECT pid from processes where name='explorer.exe') AND LOWER(name)='chrome.exe') OR pid=(SELECT pid FROM processes WHERE parent != (SELECT pid from processes where name='explorer.exe') AND LOWER(name)='chrome.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='iexplore.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='iexplore.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='wininit.exe') AND LOWER(name)='services.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='wininit.exe') AND LOWER(name)='services.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='wininit.exe') AND LOWER(name)='lsass.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='wininit.exe') AND LOWER(name)='lsass.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='cmd.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='cmd.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='notepad.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='notepad.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent != (SELECT pid from processes where name='csrss.exe') AND LOWER(name)='conhost.exe') OR pid=(SELECT pid FROM processes WHERE parent != (SELECT pid from processes where name='csrss.exe') AND LOWER(name)='conhost.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='powershell.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='powershell.exe');\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1204.001",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "[\"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='wininit.exe') AND LOWER(name)='services.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='wininit.exe') AND LOWER(name)='services.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='wininit.exe') AND LOWER(name)='lsass.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='wininit.exe') AND LOWER(name)='lsass.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='firefox.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='firefox.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='powershell.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='powershell.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='iexplore.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='iexplore.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent != (SELECT pid from processes where name='explorer.exe') AND LOWER(name)='chrome.exe') OR pid=(SELECT pid FROM processes WHERE parent != (SELECT pid from processes where name='explorer.exe') AND LOWER(name)='chrome.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='notepad.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='notepad.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='notepad++.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='notepad++.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='cmd.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='cmd.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent != (SELECT pid from processes where name='csrss.exe') AND LOWER(name)='conhost.exe') OR pid=(SELECT pid FROM processes WHERE parent != (SELECT pid from processes where name='csrss.exe') AND LOWER(name)='conhost.exe');\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1078",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "[\"select datetime(time,'unixepoch','UTC') as time_utc,host,username,tty,pid,type from last;\", 'select * from users;', \"select datetime(time,'unixepoch','UTC') as time_utc,host,user,tty,pid,type from logged_in_users;\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1078",
+            "tactic": "initial-access",
+            "color": "#8ddd25",
+            "comment": "[\"select datetime(time,'unixepoch','UTC') as time_utc,host,username,tty,pid,type from last;\", 'select * from users;', \"select datetime(time,'unixepoch','UTC') as time_utc,host,user,tty,pid,type from logged_in_users;\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1078",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "[\"select datetime(time,'unixepoch','UTC') as time_utc,host,username,tty,pid,type from last;\", 'select * from users;', \"select datetime(time,'unixepoch','UTC') as time_utc,host,user,tty,pid,type from logged_in_users;\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1078",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "[\"select datetime(time,'unixepoch','UTC') as time_utc,host,username,tty,pid,type from last;\", 'select * from users;', \"select datetime(time,'unixepoch','UTC') as time_utc,host,user,tty,pid,type from logged_in_users;\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1102.001",
+            "tactic": "command-and-control",
+            "color": "#8ddd25",
+            "comment": "[\"select p.name, p.path, lp.port, lp.address, lp.protocol  from listening_ports lp LEFT JOIN processes p ON lp.pid = p.pid WHERE lp.port != 0 AND p.name != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1047",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['[\"select * from file WHERE directory = \\'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\\\' and filename like \\'%wmic%\\';\", \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.name LIKE \\'%wmic%\\';\", \"select * from users CROSS JOIN processes pr using(uid) WHERE pr.name LIKE \\'%wmic%\\';\"]', \"select * from file WHERE directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%wmic.exe%';\", \"select * from file WHERE (directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%wmic%') or (directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%WMIPRVSE%') or (directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%WMIAPSRV%');\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.012",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[[\"select name, type, data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\System\\\\\\\\CurrentControlSet\\\\\\\\Control\\\\\\\\Print\\\\\\\\Environments\\\\\\\\Windows x64\\\\\\\\Print Processors\\';\"]]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1547.012",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[[\"select name, type, data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\System\\\\\\\\CurrentControlSet\\\\\\\\Control\\\\\\\\Print\\\\\\\\Environments\\\\\\\\Windows x64\\\\\\\\Print Processors\\';\"]]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1037.003",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitor logon scripts for unusual access by abnormal users or at abnormal times. Look for files added or modified by unusual accounts outside of normal administration duties. Monitor running process for actions that could be indicative of abnormal programs or executables running upon logon.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1037.003",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitor logon scripts for unusual access by abnormal users or at abnormal times. Look for files added or modified by unusual accounts outside of normal administration duties. Monitor running process for actions that could be indicative of abnormal programs or executables running upon logon.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1176",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['SELECT u.username, ce.* FROM users u CROSS JOIN chrome_extensions ce USING (uid);', 'SELECT u.username, ce.* FROM users u CROSS JOIN firefox_addons ce USING (uid);', 'SELECT u.username, ce.* FROM users u CROSS JOIN opera_extensions ce USING (uid);', 'select * from ie_extensions;', 'select u.username, ce.name,ce.identifier,ce.version,ce.description,ce.locale,ce.update_url,ce.author,ce.persistent,ce.path from chrome_extensions ce LEFT JOIN users u ON ce.uid = u.uid;']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1110.003",
+            "tactic": "credential-access",
+            "color": "#8ddd25",
+            "comment": "['Zeek Script - SSH Bruteforce: https://github.com/bro/bro/blob/masterscripts/policy/protocols/ssh/detect-bruteforcing.zeek\\nFTP Bruteforce:https://github.com/bro/bro/blob/masterscripts/policy/protocols/ftp/detect-bruteforcing.zeek']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1059.001",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "[\"1. select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%POWERSHELL%';\\n2. select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.name LIKE '%powershell%' AND pr.cmdline != '';\", 'select * from powershell_events;', '[\"select * from powershell_events;\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name=\\'explorer.exe\\') AND LOWER(name)=\\'powershell.exe\\') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name=\\'explorer.exe\\') AND LOWER(name)=\\'powershell.exe\\');\"]', '[\"win_apt_babyshark.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1059.003",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "[\"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\", '[\"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name=\\'explorer.exe\\') AND LOWER(name)=\\'cmd.exe\\') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name=\\'explorer.exe\\') AND LOWER(name)=\\'cmd.exe\\');\", \"SELECT pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != \\'\\';\", \"SELECT * from file WHERE directory = \\'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\\\' and filename like \\'%cmd.exe%\\';\"]', \"select * from file WHERE directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%CMD.exe%';\", 'all queries', '[\"win_apt_babyshark.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1059.004",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['select usr.username, sht.command, sht.history_file from shell_history sht JOIN users usr ON sht.uid = usr.uid WHERE sht.uid IN (SELECT uid from users);', '[\"select * from file_events;\", \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != \\'\\';\"]', '[\"If scripting is restricted for normal users, then any attempt to enable scripts running on a system would be considered suspicious. If scripts are not commonly used on a system, but enabled, scripts running out of cycle from patching or other administrator functions are suspicious.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1059.006",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['[\"SELECT * from file WHERE directory = \\'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\\\' and filename like \\'%python%.exe\\';\", \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != \\'\\';\"]', '[\"If scripting is restricted for normal users, then any attempts to enable scripts running on a system would be considered suspicious. If scripts are not commonly used on a system, but enabled, scripts running out of cycle from patching or other administrator functions are suspicious. Scripts should be captured from the file system when possible to determine their actions and intent.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1059.008",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Consider reviewing command history in either the console or as part of the running memory to determine if unauthorized or suspicious commands were used to modify device configuration.\", \"2. Consider comparing a copy of the network device configuration against a known-good version to discover unauthorized changes to the command interpreter.\", \"3. Compare the run-time memory, though this is non-trivial and may require assistance from the vendor.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1136",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['\"Filebeat\\nmessage : type=SYSCALL and *exec= /useradd\\nElastalert\\nmatch_body.message : type=SYSCALL and *comm= useradd\"']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1136.002",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['select * from users;', \"select datetime(time,'unixepoch','UTC') as time_utc,host,user,tty,pid,type from logged_in_users;\", \"select datetime(time,'unixepoch','UTC') as time_utc,host,username,tty,pid,type from last;\", '[[\"win_new_or_renamed_user_account_with_dollar_sign.yml\"],[\"win_net_user_add.yml\"]]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1543.002",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\\'\\'lnx_pers_systemd_reload.yml\"]', 'match_body.message : *systemctl* and (*usrchanges* or *syschanges*)']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1543.002",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\\'\\'lnx_pers_systemd_reload.yml\"]', 'match_body.message : *systemctl* and (*usrchanges* or *syschanges*)']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1543.004",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitor for launch daemon creation or modification through plist files and utilities such as Objective-See\\'s KnockKnock application.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1543.004",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitor for launch daemon creation or modification through plist files and utilities such as Objective-See\\'s KnockKnock application.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1485",
+            "tactic": "impact",
+            "color": "#8ddd25",
+            "comment": "['..', '\"For filebeat index\\nmessage : *comm= dd*\\nElastalert_status index\\nmatch_body.message : *comm= dd*\\n\"']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1132.001",
+            "tactic": "command-and-control",
+            "color": "#8ddd25",
+            "comment": "['Zeek script - https://github.com/zeek/zeek/master/scripts/policy/protocols/']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1025",
+            "tactic": "collection",
+            "color": "#8ddd25",
+            "comment": "['SELECT device, device_alias, flags, path,type from mounts;']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1140",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%certutil%';\", '\"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != \\'\\';\"']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1189",
+            "tactic": "initial-access",
+            "color": "#8ddd25",
+            "comment": "['[\"select DISTINCT p.name, p.path, pos.remote_address, pos.remote_port from process_open_sockets pos LEFT JOIN processes p ON pos.pid = p.pid WHERE pos.remote_port != 0 AND p.name != \\'\\';\", \"https://raw.githubusercontent.com/CptOfEvilMinions/BlogProjects/master/osquery-url-monitor/conf/osquery/osquery.conf\"]', '[\"1. Firewalls and proxies can block potentially known-bad domains or parameters in URLs.\", \"2. NIDS with SSL/TLS MITM inspection can be used to look for known malicious scripts. \", \"3. Detect unusual behavior of browser processes, Process injection for attempts to hide execution, or other unusual network traffic.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1573.001",
+            "tactic": "command-and-control",
+            "color": "#8ddd25",
+            "comment": "['Zeek script - https://github.com/zeek/zeek/tree/master/scripts/policy/protocols/conn']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.002",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"select name, type, data from registry where key=\\'HKEY_CURRENT_USER\\\\\\\\Software\\\\\\\\Policies\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\Control Panel\\\\\\\\Desktop\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.002",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"select name, type, data from registry where key=\\'HKEY_CURRENT_USER\\\\\\\\Software\\\\\\\\Policies\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\Control Panel\\\\\\\\Desktop\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.005",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"Trap commands must be registered for the shell or programs, so they appear in files. Monitoring files for suspicious or overly broad trap commands can narrow down suspicious behavior during an investigation. Monitor for suspicious processes executed through trap interrupts.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.005",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"Trap commands must be registered for the shell or programs, so they appear in files. Monitoring files for suspicious or overly broad trap commands can narrow down suspicious behavior during an investigation. Monitor for suspicious processes executed through trap interrupts.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.006",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitor processes for those that may be used to modify binary headers. Monitor file systems for changes to application binaries and invalid checksums/signatures. Changes to binaries that do not line up with application updates or patches are also extremely suspicious.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.006",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"Monitor processes for those that may be used to modify binary headers. Monitor file systems for changes to application binaries and invalid checksums/signatures. Changes to binaries that do not line up with application updates or patches are also extremely suspicious.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.009",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"select name,type,data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\SYSTEM\\\\\\\\CurrentControlSet\\\\\\\\Control\\\\\\\\Session Manager\\\\\\\\AppCertDLLs\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.009",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"select name,type,data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\SYSTEM\\\\\\\\CurrentControlSet\\\\\\\\Control\\\\\\\\Session Manager\\\\\\\\AppCertDLLs\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.011",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"select name,type,data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\software\\\\\\\\microsoft\\\\\\\\windows nt\\\\\\\\currentversion\\\\\\\\appcompatflags\\\\\\\\installedsdb\"]', '[\"select name,type,data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\software\\\\\\\\microsoft\\\\\\\\windows nt\\\\\\\\currentversion\\\\\\\\appcompatflags\\\\\\\\custom\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.011",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"select name,type,data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\software\\\\\\\\microsoft\\\\\\\\windows nt\\\\\\\\currentversion\\\\\\\\appcompatflags\\\\\\\\installedsdb\"]', '[\"select name,type,data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\software\\\\\\\\microsoft\\\\\\\\windows nt\\\\\\\\currentversion\\\\\\\\appcompatflags\\\\\\\\custom\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.012",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "[\"select name,type,data from registry where key like 'HKEY_LOCAL_MACHINE\\\\\\\\SOFTWARE\\\\\\\\Microsoft\\\\\\\\Windows NT\\\\\\\\CurrentVersion\\\\\\\\Image File Execution Options\\\\\\\\%\\\\\\\\';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1546.012",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "[\"select name,type,data from registry where key like 'HKEY_LOCAL_MACHINE\\\\\\\\SOFTWARE\\\\\\\\Microsoft\\\\\\\\Windows NT\\\\\\\\CurrentVersion\\\\\\\\Image File Execution Options\\\\\\\\%\\\\\\\\';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1480.001",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"Detecting the use of environmental keying may be difficult depending on the implementation. Monitoring for suspicious processes being spawned that gather a variety of system information or perform other forms of Discovery, especially in a short period of time, may aid in detection.\", \"select * from processes;\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1048",
+            "tactic": "exfiltration",
+            "color": "#8ddd25",
+            "comment": "[\"select p.name, p.path, lp.port, lp.address, lp.protocol  from listening_ports lp LEFT JOIN processes p ON lp.pid = p.pid WHERE lp.port != 0 AND p.name != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1011",
+            "tactic": "exfiltration",
+            "color": "#8ddd25",
+            "comment": "[\"select p.name, p.path, lp.port, lp.address, lp.protocol  from listening_ports lp LEFT JOIN processes p ON lp.pid = p.pid WHERE lp.port != 0 AND p.name != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1203",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Detecting software exploitation may be difficult depending on the tools available.\", \"2. Look for behavior on the endpoint system that might indicate successful compromise, such as abnormal behavior of the browser or Office processes. This could include suspicious files written to disk, evidence of Process Injection for attempts to hide execution, evidence of Discovery, or other unusual network traffic that may indicate additional tools transferred to the system.\"]', '[\"select * from file_events;\", \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != \\'\\';\", \"select DISTINCT p.name, p.path, pos.remote_address, pos.remote_port from process_open_sockets pos LEFT JOIN processes p ON pos.pid = p.pid WHERE pos.remote_port != 0 AND p.name != \\'\\';\", \"select p.name, p.path, lp.port, lp.address, lp.protocol from listening_ports lp LEFT JOIN processes p ON lp.pid = p.pid WHERE lp.port != 0 AND p.name != \\'\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1083",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "['select usr.username, sht.command, sht.history_file from shell_history sht JOIN users usr ON sht.uid = usr.uid WHERE sht.uid IN (SELECT uid from users);', \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\", 'select * from ntfs_journal_events;']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1222",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['select usr.username, sht.command, sht.history_file from shell_history sht JOIN users usr ON sht.uid = usr.uid WHERE sht.uid IN (SELECT uid from users);', 'match_body.message(*changes* AND*chmod* ) OR *chattr* OR *chown*']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1222.001",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"win_ad_object_writedac_access.yml\", \"win_malware_wannacry.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1200",
+            "tactic": "initial-access",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Asset management systems will help detection of systems or network devices that shouldn\\'t exist in the network.\", \"2. Endpoint sensors help detect addition of hardware via USB, Thunderbolt, and other external devices communiaction ports.\", \"select * from usb_devices;\"]', '[\"win_external_device.yml\"]', '[\"win_usb_device_plugged.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.001",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"select * FROM ntfs_journal_events WHERE path like \\'%AppData%\\';\"]', '[\"sysmon_svchost_dll_search_order_hijack.yml\",\"sysmon_susp_fax_dll.yml\",\"sysmon_registry_persistence_search_order.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.001",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"select * FROM ntfs_journal_events WHERE path like \\'%AppData%\\';\"]', '[\"sysmon_svchost_dll_search_order_hijack.yml\",\"sysmon_susp_fax_dll.yml\",\"sysmon_registry_persistence_search_order.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.001",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"select * FROM ntfs_journal_events WHERE path like \\'%AppData%\\';\"]', '[\"sysmon_svchost_dll_search_order_hijack.yml\",\"sysmon_susp_fax_dll.yml\",\"sysmon_registry_persistence_search_order.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.005",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Look for changes to binaries and service executables that may normally occur during software updates. If an executable is written, renamed, and/or moved to match an existing service executable, it could be detected and correlated with other suspicious behavior. Hashing of binaries and service executables could be used to detect replacement against historical data.\\n2. Look for abnormal process call trees from typical processes and services and for execution of other commands that could relate to Discovery or other adversary techniques.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.005",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Look for changes to binaries and service executables that may normally occur during software updates. If an executable is written, renamed, and/or moved to match an existing service executable, it could be detected and correlated with other suspicious behavior. Hashing of binaries and service executables could be used to detect replacement against historical data.\\n2. Look for abnormal process call trees from typical processes and services and for execution of other commands that could relate to Discovery or other adversary techniques.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.005",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Look for changes to binaries and service executables that may normally occur during software updates. If an executable is written, renamed, and/or moved to match an existing service executable, it could be detected and correlated with other suspicious behavior. Hashing of binaries and service executables could be used to detect replacement against historical data.\\n2. Look for abnormal process call trees from typical processes and services and for execution of other commands that could relate to Discovery or other adversary techniques.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.008",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Monitor file creation for files named after partial directories and in locations that may be searched for common processes through the environment variable, or otherwise should not be user writable. Monitor the executing process for process executable paths that are named for partial directories. Monitor file creation for programs that are named after Windows system programs or programs commonly executed without a path (such as \"findstr,\" \"net,\" and \"python\"). If this activity occurs outside of known administration activity, upgrades, installations, or patches, then it may be suspicious.\\n2. Data and events should not be viewed in isolation, but as part of a chain of behavior that could lead to other activities, such as network connections made for Command and Control, learning details about the environment through Discovery, and Lateral Movement.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.008",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Monitor file creation for files named after partial directories and in locations that may be searched for common processes through the environment variable, or otherwise should not be user writable. Monitor the executing process for process executable paths that are named for partial directories. Monitor file creation for programs that are named after Windows system programs or programs commonly executed without a path (such as \"findstr,\" \"net,\" and \"python\"). If this activity occurs outside of known administration activity, upgrades, installations, or patches, then it may be suspicious.\\n2. Data and events should not be viewed in isolation, but as part of a chain of behavior that could lead to other activities, such as network connections made for Command and Control, learning details about the environment through Discovery, and Lateral Movement.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.008",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"1. Monitor file creation for files named after partial directories and in locations that may be searched for common processes through the environment variable, or otherwise should not be user writable. Monitor the executing process for process executable paths that are named for partial directories. Monitor file creation for programs that are named after Windows system programs or programs commonly executed without a path (such as \"findstr,\" \"net,\" and \"python\"). If this activity occurs outside of known administration activity, upgrades, installations, or patches, then it may be suspicious.\\n2. Data and events should not be viewed in isolation, but as part of a chain of behavior that could lead to other activities, such as network connections made for Command and Control, learning details about the environment through Discovery, and Lateral Movement.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.011",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"sysmon_possible_privilege_escalation_via_service_registry_permissions_weakness.yml\",\"win_using_sc_to_change_sevice_image_path_by_non_admin.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.011",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"sysmon_possible_privilege_escalation_via_service_registry_permissions_weakness.yml\",\"win_using_sc_to_change_sevice_image_path_by_non_admin.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1574.011",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"sysmon_possible_privilege_escalation_via_service_registry_permissions_weakness.yml\",\"win_using_sc_to_change_sevice_image_path_by_non_admin.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1562.004",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%netsh.exe%';\", '[\"select name,type,data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\SYSTEM\\\\\\\\CurrentControlSet\\\\\\\\Services\\\\\\\\SharedAccess\\\\\\\\Parameters\\\\\\\\FirewallPolicy\\\\\\\\StandardProfile\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1070.004",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%CMD%';\", 'select * from file_events;']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1070.006",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['select * from file_events;']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1105",
+            "tactic": "command-and-control",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%certutil%';\", 'select * from file_events;', 'message:(*scp*) OR (*sftp*) OR (*rsync*)']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1557.001",
+            "tactic": "collection",
+            "color": "#8ddd25",
+            "comment": "['[\"select name, type, data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\SOFTWARE\\\\\\\\Policies\\\\\\\\Microsoft\\\\\\\\Windows NT\\\\\\\\DNSClient\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1557.001",
+            "tactic": "credential-access",
+            "color": "#8ddd25",
+            "comment": "['[\"select name, type, data from registry where key=\\'HKEY_LOCAL_MACHINE\\\\\\\\SOFTWARE\\\\\\\\Policies\\\\\\\\Microsoft\\\\\\\\Windows NT\\\\\\\\DNSClient\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1036.005",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['select * from file_events;', \"select name,type,data from registry where key LIKE 'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\Run' and name='WindowsDefenderUpdater';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1040",
+            "tactic": "credential-access",
+            "color": "#8ddd25",
+            "comment": "['message: type=SYSCALL AND *tcpdump*']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1040",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "['message: type=SYSCALL AND *tcpdump*']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1571",
+            "tactic": "command-and-control",
+            "color": "#8ddd25",
+            "comment": "['Zeek - https://github.com/zeek/zeek/tree/master/scripts/policy/protocols/']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1003.001",
+            "tactic": "credential-access",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%mimikatz%';\", 'select * from powershell_events;', '[\"select * from powershell_events where script_text like \\'%Invoke-Mimikatz%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1003.005",
+            "tactic": "credential-access",
+            "color": "#8ddd25",
+            "comment": "[\"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.name LIKE 'lazagne';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1137.001",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"https://www.221bluestreet.com/post/office-templates-and-globaldotname-a-stealthy-office-persistence-technique\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1137.002",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"select name, type, data from registry where key=\\'HKEY_CURRENT_USER\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Office test\\\\\\\\Special\\\\\\\\Perf\\';\",\\n\"select name, type, data from registry where key=\\'HKEY_USERS\\\\\\\\%\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Office test\\\\\\\\Special\\\\\\\\Perf\\';\"]', '[\"sysmon_office_test_regadd.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1069",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "['select usr.username, sht.command, sht.history_file from shell_history sht JOIN users usr ON sht.uid = usr.uid WHERE sht.uid IN (SELECT uid from users);', \"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%net.exe%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1566.001",
+            "tactic": "initial-access",
+            "color": "#8ddd25",
+            "comment": "['[\"1. NIDS and email gateways can be used to scan email attachments.\", \"2. Detonation chambers can be used to scan malicious attachments.\", \"3. Endpoint sensing or network sensing can detect malicious events once such attachment is opened.\"]\\n\\nZeek Script - pishing-detection-scripts.zip', 'Zeek Script - https://github.com/hosom/bro-phishing']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1566.002",
+            "tactic": "initial-access",
+            "color": "#8ddd25",
+            "comment": "['[\"1. URL inspection within mail can help detect links leading to malicious sites.\", \"2. Use detonation chambers or go to site to determine if they are potentially malicious.\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1090",
+            "tactic": "command-and-control",
+            "color": "#8ddd25",
+            "comment": "[\"select p.name, p.path, lp.port, lp.address, lp.protocol  from listening_ports lp LEFT JOIN processes p ON lp.pid = p.pid WHERE lp.port != 0 AND p.name != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1012",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%reg%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1021",
+            "tactic": "lateral-movement",
+            "color": "#8ddd25",
+            "comment": "['select * from users;', \"select datetime(time,'unixepoch','UTC') as time_utc,host,user,tty,pid,type from logged_in_users;\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1091",
+            "tactic": "initial-access",
+            "color": "#8ddd25",
+            "comment": "['[\"select * from file_events;\", \"select DISTINCT p.name, p.path, pos.remote_address, pos.remote_port from process_open_sockets pos LEFT JOIN processes p ON pos.pid = p.pid WHERE pos.remote_port != 0 AND p.name != \\'\\';\", \"1. Monitor file access on removable media.\", \"2. Detect processes that execute from removable media after it is mounted or when initiated by a user.\"]', '[\"win_external_device.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1091",
+            "tactic": "lateral-movement",
+            "color": "#8ddd25",
+            "comment": "['[\"select * from file_events;\", \"select DISTINCT p.name, p.path, pos.remote_address, pos.remote_port from process_open_sockets pos LEFT JOIN processes p ON pos.pid = p.pid WHERE pos.remote_port != 0 AND p.name != \\'\\';\", \"1. Monitor file access on removable media.\", \"2. Detect processes that execute from removable media after it is mounted or when initiated by a user.\"]', '[\"win_external_device.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1496",
+            "tactic": "impact",
+            "color": "#8ddd25",
+            "comment": "[\"SELECT pid, name, ROUND((total_size * '10e-7'), 2) AS used FROM processes ORDER BY total_size DESC LIMIT 5;\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%schtasks%';\", \"select name,action,path,enabled,datetime(next_run_time,'unixepoch','UTC') from scheduled_tasks;\", \"select * from file WHERE (directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%schtasks%') or (directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%at.exe%');\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%schtasks%';\", \"select name,action,path,enabled,datetime(next_run_time,'unixepoch','UTC') from scheduled_tasks;\", \"select * from file WHERE (directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%schtasks%') or (directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%at.exe%');\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%schtasks%';\", \"select name,action,path,enabled,datetime(next_run_time,'unixepoch','UTC') from scheduled_tasks;\", \"select * from file WHERE (directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%schtasks%') or (directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%at.exe%');\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.002",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['[\"select * from file WHERE directory = \\'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\\\' and filename like \\'%at.exe%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.002",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"select * from file WHERE directory = \\'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\\\' and filename like \\'%at.exe%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.002",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"select * from file WHERE directory = \\'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\\\' and filename like \\'%at.exe%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.004",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['[\"SELECT name, path, program FROM launchd;\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.004",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"SELECT name, path, program FROM launchd;\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.004",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"SELECT name, path, program FROM launchd;\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.006",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['[\"Systemd timer unit files may be detected by auditing file creation and modification events within the /etc/systemd/system, /usr/lib/systemd/system/, and ~/.config/systemd/user/\", \"select * from file_events;\", \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline like \\'%systemd%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.006",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"Systemd timer unit files may be detected by auditing file creation and modification events within the /etc/systemd/system, /usr/lib/systemd/system/, and ~/.config/systemd/user/\", \"select * from file_events;\", \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline like \\'%systemd%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1053.006",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"Systemd timer unit files may be detected by auditing file creation and modification events within the /etc/systemd/system, /usr/lib/systemd/system/, and ~/.config/systemd/user/\", \"select * from file_events;\", \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline like \\'%systemd%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1072",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "[\"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\", '[\"1. Detection methods will vary depending on the type of third-party software or system and how it is typically used.\", \"Perform application deployment at regular times so that irregular deployment activity stands out.\", \"select * from process_events;\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1072",
+            "tactic": "lateral-movement",
+            "color": "#8ddd25",
+            "comment": "[\"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\", '[\"1. Detection methods will vary depending on the type of third-party software or system and how it is typically used.\", \"Perform application deployment at regular times so that irregular deployment activity stands out.\", \"select * from process_events;\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1518.001",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%tasklist%';\", \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1082",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "['select usr.username, sht.command, sht.history_file from shell_history sht JOIN users usr ON sht.uid = usr.uid WHERE sht.uid IN (SELECT uid from users);', \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\", \"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%systeminfo%';\", \"select * from file WHERE directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%systeminfo%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1033",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "['select usr.username, sht.command, sht.history_file from shell_history sht JOIN users usr ON sht.uid = usr.uid WHERE sht.uid IN (SELECT uid from users);', \"select pr.pid, pr.name, usr.username, pr.path, pr.cmdline from processes pr LEFT JOIN users usr ON pr.uid = usr.uid WHERE pr.cmdline != '';\", \"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%whoami%';\", \"select * from file WHERE directory = 'C:\\\\Windows\\\\Prefetch\\\\' and filename like '%whoami%';\", 'match_body.message : (*users* or *who*) and *etcchanges*']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1569.001",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "['[\"1. KnockKnock can be used to detect persistent programs such as those installed via launchctl as launch agents or launch daemons.\", \"select * from file_events;\", \"select * from processes where parent like \\'%launch%\\';\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1124",
+            "tactic": "discovery",
+            "color": "#8ddd25",
+            "comment": "[\"select * from file WHERE directory = 'C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\' and filename like '%net.exe%';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1127.001",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"win_possible_applocker_bypass.yml\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1204.002",
+            "tactic": "execution",
+            "color": "#8ddd25",
+            "comment": "[\"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='wininit.exe') AND LOWER(name)='services.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='wininit.exe') AND LOWER(name)='services.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='wininit.exe') AND LOWER(name)='lsass.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='wininit.exe') AND LOWER(name)='lsass.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='firefox.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='firefox.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='powershell.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='powershell.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='iexplore.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='iexplore.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent != (SELECT pid from processes where name='explorer.exe') AND LOWER(name)='chrome.exe') OR pid=(SELECT pid FROM processes WHERE parent != (SELECT pid from processes where name='explorer.exe') AND LOWER(name)='chrome.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='notepad.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='notepad.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='notepad++.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='notepad++.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='cmd.exe') OR pid=(SELECT pid FROM processes WHERE parent!=(SELECT pid from processes where name='explorer.exe') AND LOWER(name)='cmd.exe');\", \"SELECT name as bad_parent_child_name, pid bad_parent_child_pid FROM processes WHERE pid=(SELECT parent FROM processes WHERE parent != (SELECT pid from processes where name='csrss.exe') AND LOWER(name)='conhost.exe') OR pid=(SELECT pid FROM processes WHERE parent != (SELECT pid from processes where name='csrss.exe') AND LOWER(name)='conhost.exe');\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1078.001",
+            "tactic": "defense-evasion",
+            "color": "#8ddd25",
+            "comment": "['[\"SELECT * FROM users;\", \"select datetime(time,\\'unixepoch\\',\\'UTC\\') as time_utc,host,user,tty,pid,type from logged_in_users;\", \"select datetime(time,\\'unixepoch\\',\\'UTC\\') as time_utc,host,username,tty,pid,type from last;\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1078.001",
+            "tactic": "initial-access",
+            "color": "#8ddd25",
+            "comment": "['[\"SELECT * FROM users;\", \"select datetime(time,\\'unixepoch\\',\\'UTC\\') as time_utc,host,user,tty,pid,type from logged_in_users;\", \"select datetime(time,\\'unixepoch\\',\\'UTC\\') as time_utc,host,username,tty,pid,type from last;\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1078.001",
+            "tactic": "persistence",
+            "color": "#8ddd25",
+            "comment": "['[\"SELECT * FROM users;\", \"select datetime(time,\\'unixepoch\\',\\'UTC\\') as time_utc,host,user,tty,pid,type from logged_in_users;\", \"select datetime(time,\\'unixepoch\\',\\'UTC\\') as time_utc,host,username,tty,pid,type from last;\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1078.001",
+            "tactic": "privilege-escalation",
+            "color": "#8ddd25",
+            "comment": "['[\"SELECT * FROM users;\", \"select datetime(time,\\'unixepoch\\',\\'UTC\\') as time_utc,host,user,tty,pid,type from logged_in_users;\", \"select datetime(time,\\'unixepoch\\',\\'UTC\\') as time_utc,host,username,tty,pid,type from last;\"]']",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1102",
+            "tactic": "command-and-control",
+            "color": "#8ddd25",
+            "comment": "[\"select p.name, p.path, lp.port, lp.address, lp.protocol  from listening_ports lp LEFT JOIN processes p ON lp.pid = p.pid WHERE lp.port != 0 AND p.name != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        },
+        {
+            "techniqueID": "T1102.002",
+            "tactic": "command-and-control",
+            "color": "#8ddd25",
+            "comment": "[\"select p.name, p.path, lp.port, lp.address, lp.protocol  from listening_ports lp LEFT JOIN processes p ON lp.pid = p.pid WHERE lp.port != 0 AND p.name != '';\"]",
+            "enabled": true,
+            "metadata": [],
+            "showSubtechniques": false
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

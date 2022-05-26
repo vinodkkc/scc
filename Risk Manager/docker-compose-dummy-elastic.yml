@@ -1,0 +1,41 @@
+version: '3.1'
+
+services:
+  elastic:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.4
+    container_name: rm-elastic
+    environment:
+      - network.host=0.0.0.0
+      - discovery.type=single-node
+      # Add hosts below if data is to be fetched from remote elastic for testing.
+      - reindex.remote.whitelist=10.254.4.84:9200
+    #volumes:
+      # - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      # - ./es-data:/usr/share/elasticsearch/data:rw
+    ports:
+      - 9200:9200
+    networks:
+      - rm-kibana-nw
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.13.4
+    container_name: rm-kibana
+    restart: always
+    environment:
+      - server.host=0.0.0.0
+      - ELASTICSEARCH_HOSTS=$ELASTICSEARCH_HOSTS
+      - ELASTICSEARCH_URL=$ELASTICSEARCH_URL
+      - SERVER_SSL_ENABLED=true
+      - SERVER_SSL_KEY=config/certs/cert.key
+      - SERVER_SSL_CERTIFICATE=config/certs/cert.crt
+    volumes:
+    #  - ./kibana.yml:/usr/share/kibana/config/kibana.yml
+      - ./certs:/usr/share/kibana/config/certs/:ro
+    ports:
+      - 5601:5601
+    networks:
+      - rm-kibana-nw
+
+networks:
+  rm-kibana-nw:
+    driver: bridge

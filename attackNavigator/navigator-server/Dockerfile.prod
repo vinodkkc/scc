@@ -1,0 +1,21 @@
+FROM python:3.8
+
+# Set environment variables
+ENV PYTHONUNBUFFERED 1
+
+# Set work directory.
+RUN mkdir /src
+WORKDIR /src
+
+COPY requirements.txt /src
+# Copy project code.
+COPY ./src /src
+
+COPY ./wait-for-it/wait-for-it.sh /src
+
+# Install dependencies.
+RUN pip install -r /src/requirements.txt
+
+# RUN python manage.py runserver 0.0.0.0:8021
+
+# EXPOSE 8021

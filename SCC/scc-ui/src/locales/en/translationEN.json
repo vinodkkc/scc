@@ -1,0 +1,93 @@
+{
+  "COMMON": {
+    "SECURITY_COMMAND_CENTER": "Security Command Center"
+  },
+  "LOGIN": {
+    "LOGIN": "Login",
+    "FORGOT_PASSWORD": "Forgot password",
+    "PASSWORD": "Password",
+    "USERNAME": "Username",
+    "EMPTY_ERROR": "Username or Password is Empty.",
+    "USERNAME_MIN_LENGTH_ERROR": "Username Should Contain Atleast 6 Characters.",
+    "INVALID_CREDENTIAL": "Invalid Credential.",
+    "SESSION_EXPIRED": "Session expired, Please sign in again..."
+  },
+  "HEADER": {
+    "HELLO": "Hello,",
+    "LOGOUT": "Logout",
+    "CHOOSE_LANG": "Choose Language",
+    "ENGLISH": "English",
+    "PORTUGUESE": "Portuguese"
+  },
+  "FOOTER": { "COPYRIGHT": "Copyright © " },
+  "DASHBOARD": "Dashboard",
+  "ATTACK_EMULATION": "Attack Emulation",
+  "USERS": "Users",
+  "AUDIT_LOGS": "Audit Logs",
+  "ACDS_NAVIGATOR": "ACDS-Navigator",
+  "UPDATE_ATTACK": "updateAttack",
+  "UPDATE_TECHNIQUE": "updateTechnique",
+  "UPDATE_MACHINE": "updateMachine",
+  "CONFIGURATIONS": "Configurations",
+  "UNDER_CONSTRUCTION_MESSAGE": "Work is under progress...",
+  "NO_DATA_MESSAGE": "No Data",
+  "OK": "OK",
+
+  "DASHBOARDTILE": {
+    "TYPE_OF_NETWORK": "Type of network",
+    "NETWORK_SECURITY": "Network Security",
+    "SUPPORTED_TECHNIQUE": "Supported Technique",
+    "RED_BLUE_TEAM": "Red-Blue Team Workbench",
+    "SUPPORTED_DETECTION": "Supported Detection",
+    "ENDPOINT_SECURITY": "Endpoint Security",
+    "MISP_INFORMATION": "MISP information",
+    "THREAT_INTELLIGENCE": "Threat Intelligence Platform",
+    "THREAT_HUNTING": "Threat Hunting",
+    "TOTAL_RISK": "Total Risk",
+    "RISK_MANAGEMENT": "Risk Management",
+    "NO_OF_TICKETS": "No of Tickets",
+    "TICKETING": "Ticketing",
+    "DISCOVERY_AND_ASSETS": "Discovery and Assets",
+    "TICKETING_AND_ASSETS_MGMT": "Discovery and Asset Management",
+    "SIMULATIONS": "Simulations",
+    "OEM_VISIBILITY": "OEM visibility and control",
+    "OEM": "OEM",
+    "POLICIES": "Policies",
+    "POLICY_MGMT": "Policy Management",
+    "INCIDENTS": "Incidents",
+    "SOAR": "SOAR"
+  },
+  "SIDEMENUDATA": {
+    "DASHBOARD": "Dashboard",
+    "ATTACK_EMULATION": "Attack Emulation",
+    "USERS": "Users",
+    "AUDIT_LOGS": "Audit Logs",
+    "CONFIGURATIONS": "Configurations",
+    "ACDS_NAVIGATOR": "ACDS-Navigator",
+    "ALERTS": "Alerts"
+  },
+  "RISK_MANAGEMENT": {
+    "RISK_REPORT": "Risk Report",
+    "COMPLIANCE_REPORT": "Compliance Report",
+    "VULNERABILITY_REPORT": "Vulnerability Report"
+  },
+  "POLICY_MANAGEMENT": {
+    "POLICY_MANAGER_DETAILS": "Policy Manager Details",
+    "COMPONENT": "Component",
+    "ANONYMIZE": "Anonymize",
+    "PURGE_DATA_OLDER_THAN": "Purge data older than",
+    "DAYS": "days",
+    "SAVE": "Save",
+    "CANCEL": "Cancel",
+    "SELECT": "select",
+    "TIP": "TIP",
+    "TRUE": "True",
+    "FALSE": "False",
+    "REQUIRED_FIELD": "This field is required.",
+    "ONLY_NUMBERS_PERMITTED": "Only numbers are permitted.",
+    "SUCCESS_MESSAGE": "Data saved successfully",
+    "SERVER_ERROR_MESSAGE": "Server issue occured",
+    "INVALID_DATA_MESSAGE": "Invalid data format",
+    "FETCH_POLICY_FAILED": "Fetching policy failed"
+  }
+}

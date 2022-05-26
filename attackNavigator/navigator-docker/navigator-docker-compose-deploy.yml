@@ -1,0 +1,70 @@
+version: "3.1"
+
+services:
+
+  db:
+    container_name: navigator-db
+    image: navigator_db:v1
+    restart: always
+    networks:
+      - attack_navigator_backend
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=navigator_db
+    ports:
+      - 5432:5432
+#env_file:
+#      - ./db/db.env
+    volumes:
+      - ./navigator-db/attack_navigator.sql:/docker-entrypoint-initdb.d/init.sql
+      - navigator_data:/var/lib/postgresql/data
+
+  adminer:
+    container_name: navigator-adminer
+    image: navigator_adminer:v1
+    restart: always
+    networks:
+      - attack_navigator_backend
+    ports:
+      - 8090:8080
+
+  app:
+    container_name: navigator-server
+    image: attacknavigator_app:v1
+    command: python manage.py runserver 0.0.0.0:8012 --settings=prod_settings
+    restart: always
+    ports:
+      - "8012:8012"
+    networks: 
+      - attack_navigator_backend
+      - attack_navigator_frontend
+
+  web1:
+    container_name: navigator-ui
+    image: attacknavigator_web1:v1
+    command: npm start -- --prod --host 0.0.0.0 --port 4300
+    restart: always
+    ports:
+      - "8012:4300"
+    networks: 
+      - attack_navigator_frontend
+
+  web2:
+    container_name: matrix-ui
+    image: attacknavigator_web2:v1
+    command: npm start -- --prod --host 0.0.0.0 --port 4200
+    ports:
+      - "4200:4200"
+    networks: 
+      - attack_navigator_frontend
+
+networks:
+  attack_navigator_backend:
+      driver: bridge
+  attack_navigator_frontend:
+      driver: bridge
+
+volumes:
+  navigator_data:
+

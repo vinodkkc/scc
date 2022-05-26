@@ -1,0 +1,88 @@
+{
+  "COMMON": {
+    "SECURITY_COMMAND_CENTER": "centro de comando de segurança"
+  },
+  "LOGIN": {
+    "LOGIN": "Conecte-se",
+    "FORGOT_PASSWORD": "Esqueceu sua senha",
+    "PASSWORD": "Senha",
+    "USERNAME": "Nome do usuário",
+    "EMPTY_ERROR": "O nome de usuário ou senha está vazio.",
+    "USERNAME_MIN_LENGTH_ERROR": "O nome de usuário deve conter pelo menos 6 caracteres.",
+    "INVALID_CREDENTIAL": "Credencial inválida.",
+    "SESSION_EXPIRED": "A sessão expirou. Faça login novamente..."
+  },
+  "HEADER": {
+    "HELLO": "Olá,",
+    "LOGOUT": "Sair",
+    "CHOOSE_LANG": "Escolha o seu idioma",
+    "ENGLISH": "inglês",
+    "PORTUGUESE": "Português"
+  },
+  "FOOTER": { "COPYRIGHT": "direito autoral © " },
+  "DASHBOARD": "Painel",
+  "ATTACK_EMULATION": "Emulação de ataque",
+  "USERS": "Comercial",
+  "AUDIT_LOGS": "Logs de auditoria",
+  "ACDS_NAVIGATOR": "ACDS-Navigator",
+  "UPDATE_ATTACK": "updateAttack",
+  "UPDATE_TECHNIQUE": "updateTechnique",
+  "UPDATE_MACHINE": "updateMachine",
+  "CONFIGURATIONS": "Configurações",
+  "UNDER_CONSTRUCTION_MESSAGE": "O trabalho está em andamento...",
+  "NO_DATA_MESSAGE": "Sem dados",
+  "OK": "OK",
+
+  "DASHBOARDTILE": {
+    "TYPE_OF_NETWORK": "Tipo de rede",
+    "NETWORK_SECURITY": "Detecção de Rede",
+    "SUPPORTED_TECHNIQUE": "Técnica Suportada",
+    "RED_BLUE_TEAM": "Red-Blue Team Workbench",
+    "SUPPORTED_DETECTION": "Detecção Suportada",
+    "ENDPOINT_SECURITY": "Relatório de Endpoint",
+    "MISP_INFORMATION": "Informação MISP",
+    "THREAT_INTELLIGENCE": "Inteligência de Ameaças",
+    "THREAT_HUNTING": "Ameaça de caça",
+    "TOTAL_RISK": "Risco Total",
+    "RISK_MANAGEMENT": "Gerenciamento de riscos",
+    "NO_OF_TICKETS": "Nº de ingressos",
+    "TICKETING": "Ticketing",
+    "DISCOVERY_AND_ASSETS": "Descoberta e ativos",
+    "TICKETING_AND_ASSETS_MGMT": "Descoberta e gerenciamento de ativos",
+    "SIMULATIONS": "Simulações",
+    "OEM_VISIBILITY": "Visibilidade e controle do OEM",
+    "OEM": "OEM",
+    "POLICIES": "Políticas",
+    "POLICY_MGMT": "Gestão de Políticas",
+    "INCIDENTS": "Incidentes",
+    "SOAR": "Resposta ao Incidente"
+  },
+  "SIDEMENUDATA": {
+    "DASHBOARD": "Painel",
+    "ATTACK_EMULATION": "Emulação de ataque",
+    "USERS": "Comercial",
+    "AUDIT_LOGS": "Logs de auditoria",
+    "CONFIGURATIONS": "Configurações",
+    "ACDS_NAVIGATOR": "ACDS-Navigator",
+    "ALERTS": "Alertas"
+  },
+  "POLICY_MANAGEMENT": {
+    "POLICY_MANAGER_DETAILS": "Detalhes do Gerenciador de Políticas",
+    "COMPONENT": "Componente",
+    "ANONYMIZE": "Anonimizar",
+    "PURGE_DATA_OLDER_THAN": "Limpar dados anteriores a",
+    "DAYS": "dias",
+    "SAVE": "Salve",
+    "CANCEL": "Cancelar",
+    "SELECT": "selecionar",
+    "TIP": "TIP",
+    "TRUE": "Verdadeiro",
+    "FALSE": "Falso",
+    "REQUIRED_FIELD": "Este campo é obrigatório.",
+    "ONLY_NUMBERS_PERMITTED": "Apenas números são permitidos.",
+    "SUCCESS_MESSAGE": "Dados salvos com sucesso",
+    "SERVER_ERROR_MESSAGE": "Ocorreu um problema no servidor",
+    "INVALID_DATA_MESSAGE": "Formato de dados inválido",
+    "FETCH_POLICY_FAILED": "A busca da política falhou"
+  }
+}

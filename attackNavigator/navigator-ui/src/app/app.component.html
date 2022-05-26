@@ -1,0 +1,32 @@
+<div class="container">
+    
+    <h2 class="d-flex justify-content-center" id="heading"> Attack Navigator Utility</h2>
+    <nav class="navbar-expand-lg bg-light navbar-dark fixed">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <button routerLink="dashboard"
+                    class="m-1 btn btn-light btn-outline-primary" > Dashboard 
+                </button>
+                <button routerLink="technique"
+                    class="m-1 btn btn-light btn-outline-primary" > Technique 
+                </button>
+                <!-- <button routerLink="tactic"
+                    class="m-1 btn btn-light btn-outline-primary" > Tactic 
+                </button> -->
+                <button routerLink="attack"
+                    class="m-1 btn btn-light btn-outline-primary" > Attack 
+                </button>
+                <button routerLink="detection"
+                    class="m-1 btn btn-light btn-outline-primary" > Detection 
+                </button>
+                <button routerLink="mitigation"
+                    class="m-1 btn btn-light btn-outline-primary" > Mitigation 
+                </button>
+                
+            </li>
+        </ul>
+    </nav>
+    <ngx-ui-loader></ngx-ui-loader>
+    <router-outlet></router-outlet>
+
+</div>

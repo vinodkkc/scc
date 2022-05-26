@@ -1,0 +1,73 @@
+<hr>
+<div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Technique Details</h2>
+          <hr>
+          <p class="card-text" style="height: 50px;">Total Technique: {{ technique }}</p>
+          <button class="btn btn-primary" routerLink="/technique">More Details</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card">
+        <!-- <div class="card-header">My name is Akash</div> -->
+        <div class="card-body">
+          <h2 class="card-title">Attack Details</h2>
+          <hr>
+          <p class="card-text" style="height: 50px;">Total Attack: {{ attack }} 
+            <br> Supported Attack: {{attack_support}}
+        </p>
+        <button class="btn btn-primary" routerLink="/attack">More Details</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">Detection Details</h2>
+            <hr>
+            <p class="card-text" style="height: 50px;">Total Detection: {{detection}}
+                <br> Supported Detection: {{detection_support}}
+            </p>
+            <button class="btn btn-primary" routerLink="/detection">More Details</button>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="row chart">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-header">Attack</div>
+        <div class="card-body">
+          <canvas baseChart
+              [data]="pieChartDataAttack"
+              [labels]="pieChartLabelsAttack"
+              [chartType]="pieChartType"
+              [colors]="chartColorsAttack">
+          </canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-header">Detection</div>
+        <div class="card-body">
+          <canvas baseChart
+              [data]="pieChartDataDetection"
+              [labels]="pieChartLabelsDetection"
+              [chartType]="pieChartType"
+              [colors]="chartColorsDetection">
+          </canvas>
+        </div>
+      </div>
+
+      
+    </div>
+
+  </div>

@@ -1,0 +1,20 @@
+SCC Docker tasks.
+
+1. Created docker-compose file for all containers.
+2. Modified Dockerfile for scc ui(react) application. Removed nginx and custom build folder.
+3. created build_scc.sh file for building image.
+4. created deploy_scc.sh file for deploying from compressed files. Facing some issues here. (the env file is not in compressed image).
+
+Issues:
+1. git clone url needs private key to be added in ~/.ssh/ directory.
+2. need to pass password while cloning after execution of the build script.
+3. Need to find a way to name docker hub images with custom name. (Mostly can be created Dockerfile for same).
+4. Created compressed version of images. However when trying to deploy it from images the environment file is not available.
+   Should we copy iit explicitly? or is there any option in docker image save.
+   This will be required/helpful for other containers as well.
+5. There are some warnings about unused code and deprecated library version.
+
+TODO:
+1. dockerize spring boot app is in progerss. (Should be simple, but reading on using spring profiles).
+2. npm version in scc-ui is throwing warnings about version. Also unncessary packages should be removed.
+3. Explore ways to create prod (environment vars) build of SCC UI app.

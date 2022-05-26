@@ -1,0 +1,44 @@
+.fixed {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+tbody,
+td {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.tableheader {
+  font-size: small;
+  /* background-color: rgba(162, 228, 156, 0.616); */
+  background-color: rgba(63, 72, 199, 0.616);
+}
+
+/* row text ellipses and on hover expand row */
+th,
+td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+tr > td:hover {
+  overflow: visible;
+  white-space: unset;
+}

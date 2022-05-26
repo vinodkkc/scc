@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:$KIBANA_VERSION
+    container_name: rm-kibana
+    restart: always
+    environment:
+      - SERVER_HOST=$KIBANA_HOST
+      - SERVER_PORT=$KIBANA_PORT
+      - ELASTICSEARCH_HOSTS=$ELASTICSEARCH_HOSTS
+      - ELASTICSEARCH_URL=$ELASTICSEARCH_URL
+      - SERVER_SSL_ENABLED=$SERVER_SSL_ENABLED
+      - SERVER_SSL_KEY=$SERVER_SSL_KEY
+      - SERVER_SSL_CERTIFICATE=$SERVER_SSL_CERTIFICATE
+      - ELASTICSEARCH_SSL_VERIFICATIONMODE=none
+      - ELASTICSEARCH_USERNAME=$ELASTICSEARCH_USERNAME
+      - ELASTICSEARCH_PASSWORD=$ELASTICSEARCH_PASSWORD
+    volumes:
+    #  - ./kibana.yml:/usr/share/kibana/config/kibana.yml
+      - ./certs:/usr/share/kibana/config/certs/:ro
+    ports:
+      - $KIBANA_PORT:$KIBANA_PORT
+    networks:
+      - rm-kibana-nw
+
+networks:
+  rm-kibana-nw:
+    driver: bridge

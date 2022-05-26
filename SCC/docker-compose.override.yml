@@ -1,0 +1,36 @@
+version: "3.1"
+
+services:
+
+  adminer:
+    ports:
+      - 8080:8080
+
+  app1:
+    healthcheck:
+      test: ["CMD", "curl", "-k", "-f", "https://localhost:8443/scc"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    volumes:
+      - ~/.m2:/root/.m2
+    ports:
+      - "8443:8443"
+
+  web:
+    stdin_open: true
+    volumes:
+      - ./scc-ui:/app:rw
+      - /app/node_modules
+    ports:
+      - "443:443"
+
+networks:
+  scc_backend:
+      driver: bridge
+  scc_frontend:
+      driver: bridge
+
+volumes:
+  sccdata:

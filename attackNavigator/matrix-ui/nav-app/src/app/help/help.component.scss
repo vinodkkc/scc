@@ -1,0 +1,47 @@
+@import "../../colors.scss";
+
+.help-dialog {
+    font-size: 11pt;
+    padding: 25px;
+
+    h1 {
+        text-align: center;
+        border-bottom: 1px solid black;
+    }
+
+    .content {
+        overflow-y: scroll;
+        max-height: 60vh;
+
+        .section-link {
+            cursor:pointer;
+            color:blue;
+            text-decoration:underline;
+        }
+    }
+    
+    .close-button {
+        margin-top: 25px;
+        text-align: center;
+    }
+}
+
+// table of contents
+.toc {
+    list-style: none;
+    ul {
+        list-style: none;
+    }
+
+    li {
+        cursor:pointer;
+        color:blue;
+        text-decoration:underline;
+    }
+}
+
+code {
+    color: black;
+    border: 1px solid $panel-dark;
+    padding: 1px 2px;
+}

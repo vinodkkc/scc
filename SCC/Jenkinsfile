@@ -1,0 +1,32 @@
+#!groovy
+
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'make -C ./SCC build env="--prod"'
+                sh 'make -C ./SCC docker-push-image env="--prod"'
+            }
+            post { 
+                always {
+                    echo 'Archiving artifacts'
+                    archiveArtifacts artifacts: 'SCC/release/', onlyIfSuccessful: true 
+                    echo 'Clean Up action'
+                    sh 'chmod +x ./SCC/cleanup.sh'
+                    sh './SCC/cleanup.sh'
+                }
+            }
+        }
+    }
+    post { 
+            always {
+                    cleanWs()
+                    emailext ( 
+                    body: "More info at: ${env.BUILD_URL}", 
+                    subject: "${env.JOB_NAME}: ${env.BUILD_NUMBER} : ${currentBuild.currentResult}", 
+                    to: 'apoorva_ganu@acds.net.in,manoj_modak@acds.net.in' 
+                    ) 
+                }
+        }
+}

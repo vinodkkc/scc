@@ -1,0 +1,142 @@
+<ng-template #updateContent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">{{constEdit}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <div>
+            <label for="Script"> {{constMitigationId}}:  </label>
+            <input id="Script" class="form-control" placeholder=script name="Script" [(ngModel)]="modalContent.mitigate_id" rows="5" cols="20" disabled>
+            <br>
+
+            <label for="Script">{{constMitigationName}}: </label>
+            <input id="file_name" class="form-control" name="file_name" [(ngModel)]="modalContent.mitigate_name" disabled>
+            <br>
+  
+            <label for="description">{{constDescription}}: </label>
+            <textarea id="description" class="form-control" name="description" [(ngModel)]="modalContent.description" rows="3" cols="20"></textarea>
+            <br>
+
+            <!-- <label for="Script">Brief Information :- </label>
+            <textarea id="pre_requisite" class="form-control" name="pre_requisite" [(ngModel)]="modalContent.brief_info" rows="3" cols="20"></textarea>
+            <br> -->
+  
+
+            <label for="t_ids">{{constTechniqueId}}: </label>
+
+            <ng-multiselect-dropdown 
+             name="technique_ids"
+             [placeholder]="'Select Technique ID'"
+             [data]="allTechIds"
+             [(ngModel)]="selectedItems"
+             [settings]="dropdownSettings"
+             (onSelect)="onItemSelect($event)"
+             (onSelectAll)="onSelectAll($event)"
+             (onDeSelect)="onItemDeSelect($event)">
+
+           <ng-template #optionsTemplate let-item let-option="option" let-id="id" let-isSelected="isSelected">
+             {{option}}
+           </ng-template>
+
+
+           <ng-template #optionSelectedTemplate optionSelectedTemplate let-option="option" let-id="id">
+             {{option}}
+           </ng-template>
+
+         </ng-multiselect-dropdown>
+         <br>
+
+         <!-- <label for="Script">Support :-&nbsp;&nbsp;</label>
+            <input type="checkbox" name="support" [(ngModel)]="modalContent.support" >
+            <br> -->
+  
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close(modalContent)">Save</button>
+    </div>
+  </ng-template>
+  <hr>
+
+  <div class="form-group row">
+    <div style="width: 40%; text-align: left; vertical-align: middle">
+      <mat-form-field
+      floatLabel="never"
+      appearance="fill"
+      class="col-sm-11"
+      style="padding-top: 0px; float: right"
+    >
+      <mat-label>{{constSearchHere}}</mat-label>
+      <input
+        matInput
+        name="search_here"
+        [(ngModel)]="searchText"
+        style="font-size: large"
+        (keyup)="ngDoCheck2()"
+      />
+      <mat-icon aria-label="Search icon" matSuffix>{{constSearch}}</mat-icon>
+    </mat-form-field>
+</div>
+    <div style="width: 20%; text-align: left; padding-left: 5px">
+    <span style="padding-top: 10px;" *ngIf="filterRecord > 0 && filterRecord != mitigationList.length">
+      <h3 style="text-align: justify; vertical-align: middle;">
+        {{filterRecord}}/{{mitigationList.length}} mitigations &nbsp;&nbsp; &nbsp;&nbsp;
+      </h3>
+    </span>
+
+    <span style="padding-top: 10px;" *ngIf="filterRecord == 0 || filterRecord == mitigationList.length">
+      <h3 style="text-align: justify; vertical-align: middle;">
+        {{mitigationList.length}} total mitigations  &nbsp;&nbsp; &nbsp;&nbsp;
+      </h3>
+    </span>
+    </div>
+</div>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr >
+        <th *ngFor="let head of displayedColumns; let i = index" 
+        aria-controls="tableSortExample" scope="col"  style="padding-left: 100px;"
+        [mdbTableSort]="mitigationList" [sortBy]="displayedColumns[i]" class="tableheader"
+        >{{head}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dataItem of mitigationList | searchmitigation:searchText:filterMetadata" class="hover-highlight">
+        <td style="padding-left: 110px;">{{dataItem.mitigate_id}}</td>
+        <td style="padding-left: 50px;">{{dataItem.mitigate_name}}</td>
+        <td style="float: none;">{{dataItem.description}}</td>
+        <!-- <td>{{dataItem.brief_info}}</td> -->
+        
+        <td>{{dataItem.technique_ids}}</td>
+
+        <!-- <td>
+          <div *ngIf="dataItem.support==='yes';else other_content">
+            <input type="checkbox" name="support" value="yes" checked  disabled>
+          </div>
+          <ng-template #other_content>
+            <input type="checkbox" name="support" value="no" disabled>
+          </ng-template>
+        </td> -->
+        <td style="padding-left: 100px;">
+  
+          <button type="button" class="btn btn-light mr-1" (click)="update(updateContent,  dataItem)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
+              viewBox="0 0 16 16">
+              <path
+                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+              <path fill-rule="evenodd"
+                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+            </svg>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

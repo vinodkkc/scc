@@ -1,0 +1,21 @@
+[{
+    "firstName": "Admin",
+    "lastName": "User",
+    "username": "sccadmin",
+    "password": "password@123",
+    "role": "admin"
+},
+{
+    "firstName": "SCC",
+    "lastName": "User",
+    "username": "scc_rw_user",
+    "password": "password@123",
+    "role": "ReadWrite"
+},
+{
+    "firstName": "Guest",
+    "lastName": "User",
+    "username": "scc_vo_user",
+    "password": "password@123",
+    "role": "ViewOnly"
+}]

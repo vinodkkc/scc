@@ -1,0 +1,68 @@
+version: "3.1"
+
+services:
+
+  db:
+    container_name: navigator-db
+    build: navigator-db
+    image: navigator_db:v1
+    restart: always
+    networks:
+      - attack_navigator_backend
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=navigator_db
+    volumes:
+      - ./navigator-db/attack_navigator.sql:/docker-entrypoint-initdb.d/init.sql
+      - navigator_data:/var/lib/postgresql/data
+
+  adminer:
+    container_name: navigator-adminer
+    build: navigator-adminer
+    image: navigator_adminer:v1
+    depends_on:
+      - "db"
+    restart: always
+    networks:
+      - attack_navigator_backend
+
+  app:
+    container_name: navigator-server
+    build: navigator-server
+    image: attacknavigator_app:v1
+    restart: always
+    depends_on:
+      - "db"    
+    networks: 
+      - attack_navigator_backend
+      - attack_navigator_frontend
+
+  web1:
+    container_name: navigator-ui
+    build: navigator-ui
+    image: attacknavigator_web1:v1
+    restart: always
+    depends_on:
+      - "app"
+    networks: 
+      - attack_navigator_frontend
+
+  web2:
+    container_name: matrix-ui
+    build: matrix-ui/nav-app
+    image: attacknavigator_web2:v1
+    networks: 
+      - attack_navigator_frontend
+
+networks:
+  attack_navigator_backend:
+    driver: bridge
+  attack_navigator_frontend:
+    driver: bridge
+
+volumes:
+  navigator_data:
+

@@ -1,0 +1,771 @@
+<ng-template #jsonView let-modal>
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-basic-title">{{constStixView}}: {{techId}}</h3>
+    <button
+      type="button"
+      class="btn btn-outline-primary jsonview"
+      cdkCopyToClipboard="{{ jsonValue }}"
+    >
+      {{constCopytoClipboard}}
+    </button>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+    
+  </div>
+  <div class="modal-body">
+    <ngx-json-viewer
+      [json]="textValue"
+      [depth]="5"
+    ></ngx-json-viewer>
+  </div>
+</ng-template>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-basic-title">{{ modalHeader }}</h3>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <mat-tab-group>
+      <mat-tab label="New Script">
+        <form [formGroup]="addForm">
+          <br />
+          <div class="form-group">
+            <ng-multiselect-dropdown
+              formControlName="techniqueIds"
+              [placeholder]="'Select Technique ID *'"
+              [data]="techIdsExcludedInDetection"
+              [(ngModel)]="selectedItems"
+              [settings]="dropdownSettings"
+              (onSelect)="onItemSelect($event)"
+              (onSelectAll)="onSelectAll($event)"
+              (onDeSelect)="onItemDeSelect($event)"
+              [disabled]="isTechIdDisabled"
+              class="singleselect"
+            >
+              <ng-template
+                #optionsTemplate
+                let-item
+                let-option="option"
+                let-id="id"
+                let-isSelected="isSelected"
+              >
+                {{ option }}
+              </ng-template>
+
+              <ng-template
+                #optionSelectedTemplate
+                optionSelectedTemplate
+                let-option="option"
+                let-id="id"
+              >
+                {{ option }}
+              </ng-template>
+            </ng-multiselect-dropdown>
+
+            <div
+              *ngIf="
+                addForm.controls['techniqueIds'].errors?.required &&
+                addForm.controls['techniqueIds'].touched
+              "
+            >
+              Please select the {{ constTechniqueId }}.
+            </div>
+
+            <br />
+
+            <ng-multiselect-dropdown
+              formControlName="osType"
+              [placeholder]="'Select Platform *'"
+              [data]="selectedOSType"
+              [(ngModel)]="dropdownSelectedOSType"
+              [settings]="dropdownSettingsOS"
+              (onSelect)="onItemSelectOS($event)"
+              (onSelectAll)="onSelectAll($event)"
+              (onDeSelect)="onItemDeSelectOS($event)"
+            >
+              <ng-template
+                #optionsTemplate
+                let-item
+                let-option="option"
+                let-id="id"
+                let-isSelected="isSelected"
+              >
+                {{ option }}
+              </ng-template>
+
+              <ng-template
+                #optionSelectedTemplate
+                optionSelectedTemplate
+                let-option="option"
+                let-id="id"
+              >
+                {{ option }}
+              </ng-template>
+            </ng-multiselect-dropdown>
+
+            <div
+              *ngIf="
+                addForm.controls['osType'].errors?.required &&
+                addForm.controls['osType'].touched
+              "
+            >
+              Please select {{ constOSType }}.
+            </div>
+
+            <br />
+            <select
+              class="form-control"
+              formControlName="detectionTool"
+              id="detectionTool"
+              (change)="onItemSelectTool($event)"
+              [(ngModel)]="selectedDetectionTool"
+              required
+            >
+              <option [ngValue]="null" [disabled]="true" selected>
+                Please select {{ constDetectionTool }} *
+              </option>
+              <option
+                *ngFor="let tool of detectionToolValueAndText"
+                [value]="tool.Value"
+              >
+                {{ tool.Text }}
+              </option>
+            </select>
+            <br />
+
+            <div *ngIf="selectedDetectionTool === 'osquery'">
+              <label for="OSQuery"
+                >{{ constOSQuery }} : [Note: Please provide new query at new
+                line]</label
+              >
+              <textarea
+                id="osquery"
+                class="form-control"
+                formControlName="osquery"
+                rows="2"
+                cols="20"
+              ></textarea>
+              <br />
+            </div>
+
+            <div *ngIf="selectedDetectionTool === 'zeek'">
+              <label for="zeek">{{ constZeek }} : </label>
+              <textarea
+                id="zeek"
+                class="form-control"
+                formControlName="zeek"
+                rows="2"
+                cols="20"
+              ></textarea>
+              <br />
+            </div>
+
+            <div *ngIf="selectedDetectionTool === 'sigma'">
+              <form #addressForm="ngForm" (ngSubmit)="logValue()">
+                <div class="row">
+                  <div class="col-12">
+                    <div
+                      class="container border mb-1"
+                      *ngFor="let inputarg of inputArgArray; let i = index"
+                    >
+                      <div class="row mt-3">
+                        <div class="col-5">
+                          <div class="form-group">
+                            <input
+                              type="text"
+                              class="form-control"
+                              [(ngModel)]="inputarg.rule"
+                              name="inputargKey_{{ inputarg.id }}"
+                              placeholder="Rule name"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-5">
+                          <div class="form-group">
+                            <input
+                              type="file"
+                              class="form-control"
+                              accept=".yaml, .yml"
+                              name="inputargVal_{{ inputarg.id }}"
+                              (change)="fileChanged($event, i)"
+                            />
+                          </div>
+                        </div>
+                        <div lass="col-2">
+                          <button
+                            type="button"
+                            class="btn btn-danger btn-sm"
+                            (click)="removeInputArg(i)"
+                            *ngIf="i != 0"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-file-earmark-x"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M6.854 7.146a.5.5 0 1 0-.708.708L7.293 9l-1.147 1.146a.5.5 0 0 0 .708.708L8 9.707l1.146 1.147a.5.5 0 0 0 .708-.708L8.707 9l1.147-1.146a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146z"
+                              />
+                              <path
+                                d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"
+                              />
+                            </svg>
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-primary mb-2 mx-2"
+                            (click)="addInputArg()"
+                            *ngIf="i == 0"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-plus-circle-fill"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <br />
+            </div>
+
+            <div *ngIf="selectedDetectionTool === 'elasticsiem'">
+              <label for="elasticsiem">{{ constElasticsiem }} : </label>
+              <textarea
+                id="elasticsiem"
+                class="form-control"
+                formControlName="elasticsiem"
+                rows="2"
+                cols="20"
+              ></textarea>
+              <br />
+            </div>
+
+            <div *ngIf="selectedDetectionTool === 'other'">
+              <label for="other">{{ constOther }} : </label>
+              <textarea
+                id="other"
+                class="form-control"
+                formControlName="other"
+                rows="2"
+                cols="20"
+              ></textarea>
+              <br />
+            </div>
+
+            <ng-multiselect-dropdown
+              formControlName="dataSource"
+              [placeholder]="'Select Data Source '"
+              [data]="selectedDataSource"
+              [(ngModel)]="dropdownSelectedDataSrc"
+              [settings]="dropdownSettingsDS"
+              (onSelect)="onItemSelectDS($event)"
+              (onSelectAll)="onSelectAllDS($event)"
+              (onDeSelect)="onItemDeSelectDS($event)"
+            >
+              <ng-template
+                #optionsTemplate
+                let-item
+                let-option="option"
+                let-id="id"
+                let-isSelected="isSelected"
+              >
+                {{ option }}
+              </ng-template>
+
+              <ng-template
+                #optionSelectedTemplate
+                optionSelectedTemplate
+                let-option="option"
+                let-id="id"
+              >
+                {{ option }}
+              </ng-template>
+            </ng-multiselect-dropdown>
+            <br />
+
+            <label for="Comment">{{ constComment }} :- </label>
+            <textarea
+              id="comment"
+              class="form-control"
+              formControlName="comment"
+              [(ngModel)]="comment"
+              rows="2"
+              cols="20"
+            >
+            </textarea>
+
+            <br />
+
+            <div>
+              <label for="accuracyScore"
+                >{{ constAccuracyScore }} :- &nbsp;&nbsp;
+                <select
+                  name="accuracyScore"
+                  formControlName="accuracyScore"
+                  [(ngModel)]="accuracyScore"
+                >
+                  <option *ngFor="let number of numbers" [value]="number">
+                    {{ number }}
+                  </option>
+                </select>
+              </label>
+            </div>
+          </div>
+        </form>
+      </mat-tab>
+
+      <mat-tab label="Show Data" [disabled]="showJson">
+        <form [formGroup]="addForm">
+          <div class="form-group">
+            <br />
+            <label for="Data">{{ constScript }}</label>
+
+            <textarea
+              id="jsondata"
+              class="form-control"
+              formControlName="jsondata"
+              rows="10"
+              cols="20"
+              [readonly]="showJsonData"
+              [(ngModel)]="jsonValue"
+            ></textarea>
+          </div>
+
+          <div class="show-data-popup">
+            <button
+              type="button"
+              class="btn btn-outline-dark"
+              (click)="resetJsonData()"
+            >
+              {{ constReset }}
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-dark"
+              (click)="editJsonData()"
+            >
+              {{ constEdit }}
+            </button>
+          </div>
+        </form>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="addMore(addForm)"
+      [disabled]="!addForm.valid"
+    >
+      {{ constAddMore }}
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="submit(addForm)"
+    >
+      {{ constSubmit }}
+    </button>
+  </div>
+</ng-template>
+
+<hr />
+<div class="row">
+  <div class="col-sm-2 vr">
+    <br />
+    <h3>{{ filterTitle }}</h3>
+    <div>
+      <div appearance="fill" *ngFor="let filter of filterSelectObj">
+        <select matNativeControl disabled></select>
+        <ng-multiselect-dropdown
+          matNativeControl
+          [placeholder]="filter.name"
+          [data]="filter.options"
+          [(ngModel)]="filter.modelValue"
+          [settings]="dropdownSettingsFilter"
+          (onSelect)="multiFilterChange(filter, $event)"
+          (onSelectAll)="onSelectAllDS($event)"
+          (onDeSelect)="multiFilterDeSelect(filter, $event)"
+        >
+          <ng-template
+            #optionsTemplate
+            let-item
+            let-option="option"
+            let-id="id"
+            let-isSelected="isSelected"
+          >
+            {{ option }}
+          </ng-template>
+
+          <ng-template
+            #optionSelectedTemplate
+            optionSelectedTemplate
+            let-option="option"
+            let-id="id"
+          >
+            {{ option }}
+          </ng-template>
+        </ng-multiselect-dropdown>
+      </div>
+      <br />
+      &nbsp;
+      <button mat-flat-button color="warn" (click)="resetFilters()">
+        {{ constReset }}
+      </button>
+    </div>
+
+    <hr />
+
+    <label>
+      <h3>{{ subFilterTitle }}</h3>
+    </label>
+
+    <div>
+      <input
+        type="checkbox"
+        ng-model-options="{ getterSetter: true }"
+        (change)="filterColumn($event, 'subTechniqueId')"
+        value="subTechniqueId"
+        checked
+      /><label>&nbsp; {{ constTechniqueId }}</label>
+      <br />
+      <input
+        type="checkbox"
+        ng-model-options="{ getterSetter: true }"
+        (change)="filterColumn($event, 'mitreVersion')"
+        value="mitreVersion"
+        checked
+      /><label>&nbsp; {{ constMitreVersion }}</label>
+      <br />
+      <input
+        type="checkbox"
+        ng-model-options="{ getterSetter: true }"
+        (change)="filterColumn($event, 'script')"
+        value="script"
+        checked
+      /><label>&nbsp; {{ constScript }}</label>
+      <br />
+      <input
+        type="checkbox"
+        ng-model-options="{ getterSetter: true }"
+        (change)="filterColumn($event, 'dataSource')"
+        value="dataSource"
+        checked
+      /><label>&nbsp; {{ constDataSource }}</label>
+      <br />
+      <input
+        type="checkbox"
+        ng-model-options="{ getterSetter: true }"
+        (change)="filterColumn($event, 'comment')"
+        value="comment"
+        checked
+      /><label>&nbsp; {{ constComment }}</label>
+      <br />
+      <input
+        type="checkbox"
+        ng-model-options="{ getterSetter: true }"
+        (change)="filterColumn($event, 'accuracyScore')"
+        value="accuracyScore"
+        checked
+      /><label>&nbsp; {{ constAccuracy }}</label>
+      <br />
+      <input
+        type="checkbox"
+        ng-model-options="{ getterSetter: true }"
+        (change)="filterColumn($event, 'support')"
+        value="support"
+        checked
+      /><label>&nbsp; {{ constSupport }}</label>
+    </div>
+  </div>
+
+  <div class="col-sm-10 canvas-right">
+    <div class="navbar-dark fixed">
+      <button
+        class="btn btn-outline-primary dropdown-toggle"
+        type="button"
+        [matMenuTriggerFor]="menu"
+        id="exportjson"
+      >
+        {{ constExportJson }}
+      </button>
+      <mat-menu #menu="matMenu">
+        <button
+          mat-menu-item
+          *ngFor="let version of exportJsonMitreVersion"
+          (click)="exportJson(version)"
+        >
+          {{ version }}
+        </button>
+      </mat-menu>
+
+      <button
+        class="btn btn-md btn-outline-primary"
+        id="addScript"
+        (click)="open(content)"
+      >
+        {{ constAdd }}
+      </button>
+
+      <button
+        (click)="exporter.exportTable('csv', { fileName: 'Detection' })"
+        id="CSVExport"
+        class="btn btn-md btn-outline-primary"
+      >
+        {{ constExportCSV }}
+      </button>
+    </div>
+
+    <div class="form-group row">
+      <mat-form-field floatLabel="never" appearance="fill" class="col-sm-8">
+        <mat-label> {{ constSearchHere }} </mat-label>
+        <input
+          matInput
+          name="search_here"
+          [(ngModel)]="searchTextInput"
+          (keyup)="applyPipeFilter($event)"
+        />
+        <mat-icon aria-label="Search icon" matSuffix>{{
+          constSearch
+        }}</mat-icon>
+      </mat-form-field>
+
+      <span
+        class="record-count"
+        *ngIf="dataSource.filteredData.length < DetectionList.length"
+      >
+        <h3>
+          {{ dataSource.filteredData.length }}/{{ DetectionList.length }}
+          {{ constDetections }}
+        </h3>
+      </span>
+
+      <span
+        class="record-count"
+        *ngIf="dataSource.filteredData.length == DetectionList.length"
+      >
+        <h3>{{ DetectionList.length }} {{ constTotalDetections }}</h3>
+      </span>
+    </div>
+
+    <mat-table
+      [dataSource]="dataSource"
+      matSort
+      matTableExporter
+      class="mat-elevation-z8"
+      #exporter="matTableExporter"
+      [hiddenColumns]="[7]"
+    >
+      <ng-container matColumnDef="subTechniqueId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="tableheader">
+          {{ constTechniqueId }}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="tablerow">
+          {{ element.subTechniqueId }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="mitreVersion">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="tableheader">
+          {{ constMitreVersion }}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="tablerow">
+          {{ element.mitreVersion }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="accuracyScore">
+        <mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          class="tableheader"
+          >{{ constAccuracy }}</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" class="tablerow extrapadding">{{
+          element.accuracyScore
+        }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="support">
+        <mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          class="tableheader"
+          >{{ constSupport }}</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" class="padding-colum">
+          <div
+            *ngIf="element.support === 'yes'; else other_content"
+            class="padding-column"
+          >
+            <input
+              class="checkmark"
+              type="checkbox"
+              name="support"
+              value="yes"
+              checked
+              disabled
+            />
+            <span class="cdk-visually-hidden">{{ element.support }}</span>
+          </div>
+          <ng-template #other_content>
+            <div class="padding-column">
+              <input
+                class="checkmark"
+                type="checkbox"
+                name="support"
+                value="no"
+                disabled
+              />
+              <span class="cdk-visually-hidden">{{ element.support }}</span>
+            </div>
+          </ng-template>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="script">
+        <mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          class="tableheader extrapadding"
+          >{{ constScript }}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="tablerow">
+          {{ element.script }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="dataSource">
+        <mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          class="tableheader extrapadding"
+          >{{ constDataSource }}</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" class="tablerow">
+          {{ element.dataSource }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="comment">
+        <mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          class="tableheader"
+          >{{ constComment }}</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" class="tablerow">
+          {{ element.comment }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef class="tableheader">
+          {{ constActions }}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="padding-action-column">
+          <button
+            type="button"
+            class="btn btn-light mr-1"
+            (click)="viewJson(jsonView, element)"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              fill="currentColor"
+              class="bi bi-eye"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"
+              />
+              <path
+                d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+              />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-light mr-1"
+            (click)="update(content, element)"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              fill="currentColor"
+              class="bi bi-pencil-square"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+              />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-light mr-1"
+            (click)="deleteClick(element.detectionId)"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              fill="currentColor"
+              class="bi bi-trash"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+              />
+            </svg>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </div>
+</div>
+<ng-template #navigationLayer let-modal> </ng-template>

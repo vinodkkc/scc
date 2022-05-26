@@ -1,0 +1,69 @@
+version: "3.1"
+
+services:
+
+  db:
+    container_name: scc-db
+    build: scc-db
+    image: scc_db:v1
+    restart: always
+    networks:
+      - scc_backend
+    environment:
+      - SCC_DB=scc-db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=scc_db
+#    ports:
+#      - 5432:5432
+#    env_file:
+#      - ./db/db.env
+    volumes:
+      - ./scc-db/scc.sql:/docker-entrypoint-initdb.d/init.sql
+      - sccdata:/var/lib/postgresql/data
+
+  adminer:
+    container_name: scc-adminer
+    build: scc-adminer
+    image: scc_adminer:v1
+    depends_on:
+      - db
+    restart: always
+    networks:
+      - scc_backend
+
+  app1:
+    container_name: scc-java
+    build: 
+      context: scc-java
+      dockerfile: Dockerfile.dev
+    image: scc_app1:v1
+    restart: always
+    depends_on:
+      - db
+    networks: 
+      - scc_backend
+      - scc_frontend
+
+  web:
+    container_name: scc-ui
+    build: 
+      context: scc-ui
+      dockerfile: Dockerfile.dev
+    image: scc_web:v1
+    restart: always
+    depends_on:
+      - app1
+    # env_file:
+    #   - ./scc-ui/.env
+    networks: 
+      - scc_frontend
+
+networks:
+  scc_backend:
+    driver: bridge
+  scc_frontend:
+    driver: bridge
+
+volumes:
+  sccdata:

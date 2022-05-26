@@ -1,0 +1,75 @@
+{
+	"name": "layer",
+	"versions": {
+		"attack": "9",
+		"navigator": "4.1",
+		"layer": "4.1"
+	},
+	"domain": "enterprise-attack",
+	"description": "",
+	"filters": {
+		"platforms": [
+			"Linux",
+			"macOS",
+			"Windows",
+			"Office 365",
+			"Azure AD",
+			"AWS",
+			"GCP",
+			"Azure",
+			"SaaS",
+			"IaaS",
+			"Google Workspace",
+			"PRE",
+			"Network",
+			"Containers"
+		]
+	},
+	"sorting": 0,
+	"layout": {
+		"layout": "side",
+		"aggregateFunction": "average",
+		"showID": false,
+		"showName": true,
+		"showAggregateScores": false,
+		"countUnscored": false
+	},
+	"hideDisabled": false,
+	"techniques": [],
+	"gradient": {
+		"colors": [
+			"#ff6666",
+			"#ffe766",
+			"#8ec843"
+		],
+		"minValue": 0,
+		"maxValue": 100
+	},
+	"legendItems": [
+		{
+			"label": "accuracy >= 90",
+			"color": "#008000"
+		},
+		{
+			"label": "accuracy < 90 && accuracy >= 80",
+			"color": "#0000FF"
+		},
+		{
+			"label": "accuracy < 80 && accuracy >= 50",
+			"color": "#800080"
+		},
+		{
+			"label": "accuracy < 50 && accuracy > 0",
+			"color": "#FFA500"
+		},
+		{
+			"label": "accuracy == 0",
+			"color": "#FFFFFF"
+		}
+	],
+	"metadata": [],
+	"showTacticRowBackground": false,
+	"tacticRowBackground": "#dddddd",
+	"selectTechniquesAcrossTactics": true,
+	"selectSubtechniquesWithParent": false
+}

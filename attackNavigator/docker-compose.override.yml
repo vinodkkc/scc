@@ -1,0 +1,48 @@
+version: "3.1"
+
+services:
+
+  adminer:
+    ports:
+      - 8090:8080
+
+  app:
+    build: 
+      context: navigator-ui
+      dockerfile: Dockerfile.dev
+    command: ./wait-for-it.sh db:5432 -- python manage.py runserver 0.0.0.0:8012
+    volumes:
+      - ./navigator-server/src:/src
+    ports:
+      - "8012:8012"
+
+  web1:
+    build: 
+      context: navigator-ui
+      dockerfile: Dockerfile.dev
+    command: npm start -- --host 0.0.0.0 --port 4300
+    volumes:
+      - ./navigator-ui/src:/src
+    networks: 
+      - attack_navigator_frontend
+    ports:
+      - "8021:4300"
+
+  web2:
+    build: 
+      context: matrix-ui/nav-app
+      dockerfile: Dockerfile.dev
+    image: attacknavigator_web2:v1
+    command: npm start -- --host 0.0.0.0 --port 4200
+    ports:
+      - "4200:4200"
+
+# networks:
+#   attack_navigator_backend:
+#     driver: bridge
+#   attack_navigator_frontend:
+#     driver: bridge
+
+# volumes:
+#   navigator_data:
+

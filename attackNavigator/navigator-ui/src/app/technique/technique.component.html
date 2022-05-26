@@ -1,0 +1,178 @@
+<ng-template #updateContent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <div>
+          <label for="Technique">Technique ID :- </label>
+          <input
+            id="technique_id"
+            class="form-control"
+            name="technique_id"
+            [(ngModel)]="modalContent.technique_id"
+            disabled
+          />
+          <br />
+
+          <label for="mitre_version">mitre_version :- </label>
+          <input
+            id="mitre_version"
+            class="form-control"
+            name="mitre_version"
+            [(ngModel)]="modalContent.mitre_version"
+          />
+          <br />
+
+          <label for="technique_name">technique_name :- </label>
+          <input
+            id="technique_name"
+            class="form-control"
+            name="technique_name"
+            [(ngModel)]="modalContent.technique_name"
+            disabled
+          />
+          <br />
+
+          <label for="sub_technique_id">sub_technique_id :- </label>
+          <input
+            id="sub_technique_id"
+            class="form-control"
+            name="sub_technique_id"
+            [(ngModel)]="modalContent.sub_technique_id"
+            disabled
+          />
+          <br />
+
+          <label for="sub_technique_name">sub_technique_name :- </label>
+          <input
+            id="sub_technique_name"
+            class="form-control"
+            name="sub_technique_name"
+            [(ngModel)]="modalContent.sub_technique_name"
+            disabled
+          />
+          <br />
+
+          <label for="tactic_id">Tactic :- </label>
+          <input
+            id="tactic_id"
+            class="form-control"
+            name="tactic_id"
+            [(ngModel)]="modalContent.tactic_id"
+            disabled
+          />
+          <br />
+
+          <label for="os_type">OS-Type :- </label>
+          <input
+            id="os_type"
+            class="form-control"
+            name="os_type"
+            [(ngModel)]="modalContent.os_type"
+            disabled
+          />
+          <br />
+
+          <label for="color">Data Source :- </label>
+          <input
+            id="data_source"
+            class="form-control"
+            name="data_source"
+            [(ngModel)]="modalContent.data_source"
+          />
+          <br />
+         </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close(modalContent)"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>
+
+<hr />
+
+<div class="form-group row">
+  <div style="width: 40%; text-align: left; vertical-align: middle">
+    <mat-form-field
+      floatLabel="never"
+      appearance="fill"
+      class="col-sm-11"
+      style="padding-top: 0px; float: right"
+    >
+      <mat-label>Search here</mat-label>
+      <input
+        matInput
+        name="search_here"
+        [(ngModel)]="searchText"
+        style="font-size: large"
+        (keyup)="ngDoCheck2()"
+      />
+      <mat-icon aria-label="Search icon" matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div style="width: 24%; text-align: left; padding-left: 5px">
+    <span style="padding-top: 10px;" *ngIf="filterRecord > 0 && filterRecord != techniqueList.length">
+      <h3 style="text-align: justify; vertical-align: middle;">
+        {{filterRecord}}/{{techniqueList.length}} techniques &nbsp;&nbsp; &nbsp;&nbsp;
+      </h3>
+    </span>
+
+    <span style="padding-top: 10px;" *ngIf="filterRecord == 0 || filterRecord == techniqueList.length">
+      <h3 style="text-align: justify; vertical-align: middle;">
+        {{techniqueList.length}} total techniques  &nbsp;&nbsp; &nbsp;&nbsp;
+      </h3>
+    </span>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th
+        *ngFor="let head of displayedColumns; let i = index"
+        aria-controls="tableSortExample"
+        scope="col"
+        [mdbTableSort]="techniqueList"
+        [sortBy]="displayedColumns[i]"
+        class="tableheader"
+        style="font-weight: normal"
+      >
+        {{ head | titlecase }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr
+      *ngFor="let dataItem of techniqueList | searchtechnique: searchText:filterMetadata"
+      class="hover-highlight"
+    >
+      <td>{{ dataItem.tactic_id }}</td>
+      <td>{{ dataItem.technique_id }}</td>
+      <td>{{ dataItem.mitre_version }}</td>
+      <td>{{ dataItem.technique_name }}</td>
+      <td>{{ dataItem.sub_technique_id }}</td>
+      <td>{{ dataItem.sub_technique_name }}</td>
+      <td>{{replaceChar(dataItem.data_source,["{","}",'"'],["","",""])}}</td>
+      <td>{{replaceChar(dataItem.os_type,["'"],[""])}}</td>
+    </tr>
+  </tbody>
+</table>

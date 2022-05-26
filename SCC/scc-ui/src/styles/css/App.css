@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-weight: 400;
+  font-family: Helvetica, Arial, sans-serif;
+  background: "primary";
+}
+
+.app {
+  height: 100vh;
+}

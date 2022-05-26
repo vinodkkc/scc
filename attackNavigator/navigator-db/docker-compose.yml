@@ -1,0 +1,35 @@
+# Use postgres/example user/password credentials
+version: "1"
+
+services:
+
+  db:
+    container_name: postgres_acds
+    image: postgres:13.4
+    restart: always
+    networks:
+      - acds_network
+    ports:
+      - 5432:5432
+    env_file:
+      - db.env
+    volumes:
+      - ./db/attack_navigator.sql:/docker-entrypoint-initdb.d/init.sql
+      - pgdata:/var/lib/postgresql/data
+
+  adminer:
+    container_name: adminer_acds
+    image: adminer
+    restart: always
+    networks:
+      - acds_network
+    ports:
+      - 8080:8080
+
+networks:
+  acds_network:
+    driver: bridge
+
+volumes:
+  pgdata:
+

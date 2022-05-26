@@ -1,0 +1,296 @@
+from selenium import webdriver
+import time
+import os
+from datetime import datetime
+import pandas as pd
+from pyattck import Attck
+import json
+from ..models import Tactic, Technique, Attacks, Detection, Mitigation, \
+    TechniqueMitigation, TechniqueDetection, TechniqueAttack
+
+attack = Attck()
+DEFAULT_COLOR = str(Detection.objects.first().color)
+PARTIAL_FILL = "#FF8000"
+
+
+class ExportToJson:
+
+    def __init__(self):
+        pass
+
+    def upload_to_navigator(self, jsonfile):
+        # Path of executable chrome driver (need to download driver and provide exe path here)
+        cwd = os.getcwd()
+        # print(cwd)
+        path_to_json = os.path.join(cwd, "data/mitre_attack_json.json")
+
+        PATH = "C:\\Program Files (x86)\\chromedriver.exe"
+
+        jsonfile = json.dumps(jsonfile, indent=4)
+
+        try:
+
+            # Creating a Chrome driver object
+            options = webdriver.ChromeOptions()
+            options.add_experimental_option("excludeSwitches", ["enable-logging"])
+            driver = webdriver.Chrome(options=options, executable_path=PATH)
+
+            driver.maximize_window()
+            driver.get("https://mitre-attack.github.io/attack-navigator/")
+
+            driver.find_element_by_xpath("//*[contains(text(), 'Open Existing Layer')]").click()
+            time.sleep(2)
+
+            element = driver.find_element_by_id('uploader')
+            # element.send_keys("C:\\Users\\akash_gaurav\\Downloads\\detection_jsonfile.json")
+            element.send_keys(path_to_json)
+
+            # time.sleep(15)
+
+            # Closing the browser tab
+            # driver.close()
+
+        except Exception as e:
+            raise e
+
+    def sample_technique_func(self):
+        """return Attributes of techniques used in json file
+
+        """
+        return {
+            "techniqueID": "",
+            "tactic": "",
+            "color": "",
+            "comment": {},
+            # "comment": {
+            #     "attack": {"pre-requisite": [], "scripts": []},
+            #     "detection": []
+            # },
+            "enabled": True,
+            "metadata": [],
+            "showSubtechniques": False
+        }
+
+    def export_json(self, json_file):
+        """ This file is used to export directory into JSON format
+
+        Parameters
+        ----------
+        json_file : Python dictionary
+
+        Returns
+        -------
+        No Data
+        """
+
+        sample_dict = {}
+        try:
+
+            # Loading sample json and convert it into python dictionary
+            sample_json = open("data/sample.json", "r")
+            sample_dict = json.load(sample_json)
+            sample_json.close()
+        except FileNotFoundError as f:
+            print("FileNotFoundError: ", f)
+            raise
+        except Exception as e:
+            print("Exception: ", e)
+
+        for i in range(len(json_file)):
+            json_file[i]['comment'] = str(json_file[i]['comment'])
+
+        sample_dict['techniques'] = json_file
+
+        # write json file
+        timestamp = datetime.now().strftime("%d%m%Y%H%M%S")
+        file_location = 'static/detection_navigator_json' + timestamp + '.json'
+
+        with open(file_location, 'w', encoding='utf-8') as f:
+            json.dump(sample_dict, f, indent=4)
+
+        return timestamp
+
+    def attack_json(self):
+        attack_df = pd.DataFrame(list(Attacks.objects.all().values()))
+        # print(attack_df.head())
+
+    def detection_json_old(self):
+        detection_utility = []
+        tech_dec_map = {}
+        detection_df = pd.DataFrame(list(Detection.objects.all().values()))
+        tec_dec_df = pd.DataFrame(list(TechniqueDetection.objects.all().values()))
+        technique_df = pd.DataFrame(list(Technique.objects.all().values()))
+        # print(detection_df.head())
+        # print(tec_dec_df.head())
+
+        for i in technique_df['combine_tech_id']:
+            if TechniqueDetection.objects.filter(combine_tech_id=i).exists():
+                # print(TechniqueDetection.objects.filter(combine_tech_id=i))
+                for j in TechniqueDetection.objects.filter(combine_tech_id=i):
+                    # print(j.detection_id)
+                    if i not in tech_dec_map.keys():
+                        tech_dec_map[i] = [j.detection_id]
+                    else:
+                        tech_dec_map[i].append(j.detection_id)
+        # print(tech_dec_map.keys())
+        # for index, row in tec_dec_df.iterrows():
+
+        for key, val in tech_dec_map.items():
+            temp_script_list = []
+            for d_id in val:
+                # print(detection_df[detection_df['detection_id'] == d_id]['script'].values)
+                temp_script_list.append(detection_df[detection_df['detection_id'] == d_id]['script'].values[0])
+                # print(detection_df[detection_df['detection_id'] == d_id]['script'].values[0])
+            tech_dec_map[key] = temp_script_list
+        # print("\n\n\n/n/n/n/n", tech_dec_map)
+
+        # for tech_id, script in tech_dec_map.items():
+
+            temp_tech_id = key.split('.')[0]
+            # print("index--tech-> ",
+            #       attack.enterprise.techniques[int(attack.enterprise.techniques.index(temp_tech_id))], temp_tech_id)
+            for technique in attack.enterprise.techniques:
+                if technique.id == temp_tech_id:
+
+                    # check = False
+                    # color = ""
+                    # if (len(technique.subtechniques) > 0) and (temp_tech_id not in list(tech_dec_map.keys()))\
+                    #         and (key in list(tech_dec_map.keys())):
+                    #
+                    #     for sub in technique.subtechniques:
+                    #         if sub.id in list(tech_dec_map.keys()):
+                    #             color = DEFAULT_COLOR
+                    #         else:
+                    #             color = PARTIAL_FILL
+                    #             break
+                    # 
+                    #     check = True
+
+                    for tactic in technique.tactics:
+
+                        sample_dict = self.sample_technique_func()
+                        sample_dict['techniqueID'] = key
+                        temp_tactic = tactic.name.lower().replace(" ", "-")
+                        sample_dict['tactic'] = temp_tactic
+                        sample_dict['comment'] = temp_script_list
+                        sample_dict['color'] = DEFAULT_COLOR
+                        detection_utility.append(sample_dict)
+                        # if check:
+                        #     parent_tech_dict = self.sample_technique_func()
+                        #     parent_tech_dict['color'] = color
+                        #     parent_tech_dict['techniqueID'] = temp_tech_id
+                        #     parent_tech_dict['comment'] = ""
+                        #     parent_tech_dict['tactic'] = temp_tactic
+                        #     detection_utility.append(parent_tech_dict)
+
+                    break
+
+        # print(detection_utility)
+        # response_json = self.export_json(detection_utility)
+
+        json_path = self.export_json(detection_utility)
+        # self.upload_to_navigator(response_json)
+
+        # return response_json
+        return json_path
+
+    def all_data_json(self):
+        technique_df = pd.DataFrame(list(Technique.objects.all().values()))
+        # print(technique_df.head())
+
+    def detection_json(self):
+        detection_utility = []
+        tech_dec_map = {}
+        detection_df = pd.DataFrame(list(Detection.objects.all().values()))
+        tec_dec_df = pd.DataFrame(list(TechniqueDetection.objects.all().values()))
+        technique_df = pd.DataFrame(list(Technique.objects.all().values()))
+        tactic_df = pd.DataFrame(list(Tactic.objects.all().values()))
+        # print(detection_df.head())
+        # print(tactic_df.head())
+        # print(technique_df.head())
+
+        for i in technique_df['combine_tech_id']:
+            if TechniqueDetection.objects.filter(combine_tech_id=i).exists():
+                # print(TechniqueDetection.objects.filter(combine_tech_id=i))
+                for j in TechniqueDetection.objects.filter(combine_tech_id=i):
+                    # print(j.detection_id)
+                    if i not in tech_dec_map.keys():
+                        tech_dec_map[i] = [j.detection_id]
+                    else:
+                        tech_dec_map[i].append(j.detection_id)
+        # print(tech_dec_map.keys())
+        # for index, row in tec_dec_df.iterrows():
+
+        for key, val in tech_dec_map.items():
+            temp_script_list = []
+            for d_id in val:
+                temp_script_list.append(detection_df[detection_df['detection_id'] == d_id]['script'].values[0])
+            tech_dec_map[key] = temp_script_list
+
+            temp_tech_id = key.split('.')[0]
+
+            # print("--#-> ", temp_tech_id)
+            temp_tid = technique_df[technique_df['combine_tech_id'] == temp_tech_id]['tactic_id'].iloc[0]
+            # print("==> ", temp_tid)
+            # print("---> ", Technique.objects.filter(combine_tech_id=i).technique_name)
+
+            for t in temp_tid.split(','):
+                # print('$$$ ', t)
+                temp_tac_name = tactic_df[tactic_df['tactic_id'] == t]['tactic_name'].iloc[0]
+                # print("*** ", temp_tacnid)
+########################################################################
+                sample_dict = self.sample_technique_func()
+                sample_dict['techniqueID'] = key
+                temp_tactic = temp_tac_name.lower().replace(" ", "-")
+                # print("%%%%", temp_tactic)
+                # temp_tactic = tactic.name.lower().replace(" ", "-")
+                sample_dict['tactic'] = temp_tactic
+                sample_dict['comment'] = temp_script_list
+                sample_dict['color'] = DEFAULT_COLOR
+                detection_utility.append(sample_dict)
+
+        json_path = self.export_json(detection_utility)
+
+        return json_path
+
+
+class DataSource:
+
+    def __init__(self):
+        pass
+
+
+class DashboardCount:
+
+    def __init__(self):
+        pass
+
+    def all_items_count(self):
+        data_dic = {}
+        technique = Technique.objects.all().count()
+        detection = Detection.objects.all().count()
+        attack = Attacks.objects.all().count()
+
+        detection_support = Detection.objects.filter(support="yes").count()
+        attack_support = Attacks.objects.filter(support="yes").count()
+
+        data_dic["technique"] = technique
+        data_dic["detection"] = detection
+        data_dic["attack"] = attack
+        data_dic["detection_support"] = detection_support
+        data_dic["attack_support"] = attack_support
+
+        # print(data_dic)
+        return data_dic
+
+
+def main():
+
+    jsonObj = ExportToJson()
+    # jsonObj.attack_json()
+    jsonObj.detection_json()
+    # jsonObj.all_data_json()
+
+
+if __name__ == '__main__':
+    main()

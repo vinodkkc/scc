@@ -1,0 +1,12 @@
+/* forcing vertical scroll */
+.frameStyle {
+  background-color: "#eff1f4";
+  height: "100%";
+  width: "100%";
+  text-align: center;
+}
+
+.formInput {
+  padding: 1rem;
+  width: 50rem;
+}

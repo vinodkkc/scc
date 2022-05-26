@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/reboot"; */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.required:after {
+    content: " *";
+    color: red;
+  }
+  
+  .modal {
+    display: block !important; /* I added this to see the modal, you don't need this */
+  }
+  
+  /* Important part */
+  .modal-dialog {
+    overflow-y: initial !important;
+  }
+
+   /* hide checkbox of the multislect and select list; Keep it in Styles.css only*/
+   .singleselect .multiselect-item-checkbox {
+    padding: 0px !important;
+  }
+  .singleselect input[type="checkbox"] + div:before {
+    display: none;
+  }
+  
+  .singleselect input[type="checkbox"] + div:after {
+    display: none;
+  }
+  
+  .singleselect input[type="checkbox"] + div {
+    padding: 6px 10px !important;
+  }
+  
+  .singleselect input[type="checkbox"]:checked + div {
+    background-color: #337ab7 !important;
+    color: #fff !important;
+  }

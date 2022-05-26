@@ -1,0 +1,55 @@
+version: "3.1"
+
+services:
+
+  adminer:
+    ports:
+      - "8080:8080"
+
+  app1:
+    build: 
+      context: scc-java
+      dockerfile: Dockerfile.prod
+    ports:
+      - "8443:8443"
+
+  web:
+    container_name: scc-ui
+    image: scc_web:v1
+    build:
+      context: scc-ui
+      dockerfile: Dockerfile.prod
+      args: 
+        # Pass environment file to docker-compose command. So vars from env file, 
+        # will be used by Dockerfile.prod
+        - REACT_APP_HOST=$REACT_APP_HOST
+        - REACT_APP_BASE_PATH=$REACT_APP_BASE_PATH
+        - REACT_APP_SERVER_BASE_PATH=$REACT_APP_SERVER_BASE_PATH
+        - REACT_APP_ATTACK_NAVIGATOR_URL=$REACT_APP_ATTACK_NAVIGATOR_URL
+        - REACT_APP_NETWORK_DASHBOARD_URL=$REACT_APP_NETWORK_DASHBOARD_URL
+        - REACT_APP_ENDPOINT_DASHBOARD_URL=$REACT_APP_ENDPOINT_DASHBOARD_URL
+        - REACT_APP_MISP_URL=$REACT_APP_MISP_URL
+        - REACT_APP_SO_ALERTS_URL=$REACT_APP_SO_ALERTS_URL
+        - REACT_APP_RISK_REPORT_URL=$REACT_APP_RISK_REPORT_URL
+        - REACT_APP_CONFIG_COMPLIANCE_REPORT_URL=$REACT_APP_CONFIG_COMPLIANCE_REPORT_URL
+        - REACT_APP_VULNERABILITY_REPORT_URL=$REACT_APP_VULNERABILITY_REPORT_URL
+        - REACT_APP_POLICY_MANAGER_API_SERVER=$REACT_APP_POLICY_MANAGER_API_SERVER
+        - REACT_APP_LOGIN_TIMEOUT=$REACT_APP_LOGIN_TIMEOUT
+    env_file: 
+      - ./scc-ui/.env.prod
+    restart: always
+    volumes:
+      - ./scc-docker/ssl:/etc/nginx/ssl/
+    ports:
+      - "443:443"
+    networks: 
+      - scc_frontend
+
+networks:
+  scc_backend:
+    driver: bridge
+  scc_frontend:
+    driver: bridge
+   
+volumes:
+  sccdata:

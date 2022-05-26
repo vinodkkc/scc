@@ -1,0 +1,43 @@
+version: "3.1"
+
+services:
+
+  adminer:
+    ports:
+      - 8090:8080
+
+  app:
+    build: 
+      context: navigator-server
+      dockerfile: Dockerfile.prod
+    command: ./wait-for-it.sh db:5432 -- python manage.py runsslserver 0.0.0.0:8012 --settings=prod_settings
+    ports:
+      - "8012:8012"
+
+  web1:
+    build: 
+      context: navigator-ui
+      dockerfile: Dockerfile.prod
+    ports:
+      - "8021:4300"
+    networks: 
+      - attack_navigator_frontend
+      - reverseproxy
+
+  web2:
+    build: 
+      context: matrix-ui/nav-app
+      dockerfile: Dockerfile.prod
+    ports:
+      - "4200:4200"
+
+
+networks:
+  attack_navigator_frontend:
+    driver: bridge
+  reverseproxy:
+    external: true
+
+volumes:
+  navigator_data:
+

@@ -1,0 +1,9 @@
+FROM maven:3.8.4-openjdk-11 as build
+WORKDIR /app
+COPY . .
+RUN mvn clean package
+
+FROM openjdk:11
+#ARG JAR_FILE=target/*.jar
+COPY --from=build /app/target/scc-java.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
